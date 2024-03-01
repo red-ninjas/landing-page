@@ -7,8 +7,9 @@ import type {
 } from '../types/case-study-item';
 import { PlaceholderRender } from '../types/placeholder-render';
 import { HYGRAPH_CLIENT } from './client';
+import { cache } from 'react';
 
-export const getCaseStudieSlugs = async (): Promise<string[]> => {
+export const getCaseStudieSlugs = cache(async (): Promise<string[]> => {
   const { data } = await HYGRAPH_CLIENT.query({
     query: gql`
       query CaseStudies {
@@ -19,14 +20,15 @@ export const getCaseStudieSlugs = async (): Promise<string[]> => {
     `,
   });
   return data.caseStudies;
-};
+});
 
-export const getPortfolioItems = async (
-  language: string,
-  amount: number | undefined = 9999
-): Promise<PlaceholderRender<CaseStudyItem>[]> => {
-  const { data } = await HYGRAPH_CLIENT.query({
-    query: gql`
+export const getPortfolioItems = cache(
+  async (
+    language: string,
+    amount: number | undefined = 9999
+  ): Promise<PlaceholderRender<CaseStudyItem>[]> => {
+    const { data } = await HYGRAPH_CLIENT.query({
+      query: gql`
     query CaseStudies {
       caseStudies(locales: ${language}, first: ${amount}, orderBy: updatedAt_DESC) {
         createdAt
@@ -42,30 +44,32 @@ export const getPortfolioItems = async (
       }
     }
   `,
-  });
-
-  const items: PlaceholderRender<CaseStudyItem>[] = [];
-
-  for (const item of data.caseStudies as CaseStudyItem[]) {
-    const fimg = await fetch(item.picture.url);
-    const fimgb = Buffer.from(await fimg.arrayBuffer());
-    const { base64 } = await getPlaiceholder(fimgb);
-
-    items.push({
-      ...item,
-      placeholder: base64,
     });
+
+    const items: PlaceholderRender<CaseStudyItem>[] = [];
+
+    for (const item of data.caseStudies as CaseStudyItem[]) {
+      const fimg = await fetch(item.picture.url);
+      const fimgb = Buffer.from(await fimg.arrayBuffer());
+      const { base64 } = await getPlaiceholder(fimgb);
+
+      items.push({
+        ...item,
+        placeholder: base64,
+      });
+    }
+
+    return items;
   }
+);
 
-  return items;
-};
-
-export const getPortfolioItem = async (
-  language: string,
-  slug: string
-): Promise<PlaceholderRender<CaseStudyViewItem>> => {
-  const { data } = await HYGRAPH_CLIENT.query({
-    query: gql`
+export const getPortfolioItem = cache(
+  async (
+    language: string,
+    slug: string
+  ): Promise<PlaceholderRender<CaseStudyViewItem>> => {
+    const { data } = await HYGRAPH_CLIENT.query({
+      query: gql`
     query CaseStudies {
        caseStudy(locales: ${language}, where: { slug: "${slug}"}) {
          createdAt
@@ -83,14 +87,15 @@ export const getPortfolioItem = async (
        }
      }
    `,
-  });
+    });
 
-  const fimg = await fetch(data.caseStudy.headerPicture.url);
-  const fimgb = Buffer.from(await fimg.arrayBuffer());
-  const { base64 } = await getPlaiceholder(fimgb);
+    const fimg = await fetch(data.caseStudy.headerPicture.url);
+    const fimgb = Buffer.from(await fimg.arrayBuffer());
+    const { base64 } = await getPlaiceholder(fimgb);
 
-  return {
-    ...data.caseStudy,
-    placeholder: base64,
-  };
-};
+    return {
+      ...data.caseStudy,
+      placeholder: base64,
+    };
+  }
+);

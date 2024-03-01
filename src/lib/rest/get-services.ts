@@ -3,13 +3,15 @@ import { getPlaiceholder } from 'plaiceholder';
 import { PlaceholderRender } from '../types/placeholder-render';
 import { ServiceItem, ServiceSubItem } from '../types/service-item';
 import { HYGRAPH_CLIENT } from './client';
+import { cache } from 'react';
 
-export const getServices = async (
-  language: string,
-  module: 'service' | 'outsourcing' = 'service'
-): Promise<PlaceholderRender<ServiceItem>[]> => {
-  const { data } = await HYGRAPH_CLIENT.query({
-    query: gql`
+export const getServices = cache(
+  async (
+    language: string,
+    module: 'service' | 'outsourcing' = 'service'
+  ): Promise<PlaceholderRender<ServiceItem>[]> => {
+    const { data } = await HYGRAPH_CLIENT.query({
+      query: gql`
     query Services {
       services(locales: ${language}, orderBy: createdAt_ASC, where: {module: ${module}}) {
         createdAt
@@ -28,28 +30,28 @@ export const getServices = async (
       }
     }
   `,
-  });
-
-  const items: PlaceholderRender<ServiceItem>[] = [];
-  for (const item of data.services as ServiceItem[]) {
-    const fimg = await fetch(item.image.url);
-    const fimgb = Buffer.from(await fimg.arrayBuffer());
-    const { base64 } = await getPlaiceholder(fimgb);
-
-    items.push({
-      ...item,
-      placeholder: base64,
     });
+
+    const items: PlaceholderRender<ServiceItem>[] = [];
+    for (const item of data.services as ServiceItem[]) {
+      const fimg = await fetch(item.image.url);
+      const fimgb = Buffer.from(await fimg.arrayBuffer());
+      const { base64 } = await getPlaiceholder(fimgb);
+
+      items.push({
+        ...item,
+        placeholder: base64,
+      });
+    }
+
+    return items;
   }
+);
 
-  return items;
-};
-
-export const getSubServices = async (
-  language: string
-): Promise<ServiceSubItem[]> => {
-  const { data } = await HYGRAPH_CLIENT.query({
-    query: gql`
+export const getSubServices = cache(
+  async (language: string): Promise<ServiceSubItem[]> => {
+    const { data } = await HYGRAPH_CLIENT.query({
+      query: gql`
     query Services {
       serviceSubItems(locales: ${language}, orderBy: createdAt_ASC, where: {hasContent: true}) {
         createdAt
@@ -60,12 +62,13 @@ export const getSubServices = async (
       }
     }
   `,
-  });
+    });
 
-  return data.serviceSubItems;
-};
+    return data.serviceSubItems;
+  }
+);
 
-export const getSubServiceSlugs = async (): Promise<string[]> => {
+export const getSubServiceSlugs = cache(async (): Promise<string[]> => {
   const { data } = await HYGRAPH_CLIENT.query({
     query: gql`
       query Services {
@@ -78,14 +81,15 @@ export const getSubServiceSlugs = async (): Promise<string[]> => {
   });
 
   return data.serviceSubItems.filter((df) => df.hasContent);
-};
+});
 
-export const getSubServiceItem = async (
-  language: string,
-  slug: string
-): Promise<PlaceholderRender<ServiceSubItem>> => {
-  const { data } = await HYGRAPH_CLIENT.query({
-    query: gql`
+export const getSubServiceItem = cache(
+  async (
+    language: string,
+    slug: string
+  ): Promise<PlaceholderRender<ServiceSubItem>> => {
+    const { data } = await HYGRAPH_CLIENT.query({
+      query: gql`
     query ServiceSubItem {
       serviceSubItem(locales: ${language}, where: { slug: "${slug}"}) {
          createdAt
@@ -105,18 +109,19 @@ export const getSubServiceItem = async (
        }
      }
    `,
-  });
+    });
 
-  if (data.serviceSubItem.image) {
-    const fimg = await fetch(data.serviceSubItem.image.url);
-    const fimgb = Buffer.from(await fimg.arrayBuffer());
-    const { base64 } = await getPlaiceholder(fimgb);
+    if (data.serviceSubItem.image) {
+      const fimg = await fetch(data.serviceSubItem.image.url);
+      const fimgb = Buffer.from(await fimg.arrayBuffer());
+      const { base64 } = await getPlaiceholder(fimgb);
 
-    return {
-      ...data.serviceSubItem,
-      placeholder: base64,
-    };
-  } else {
-    return data.serviceSubItem;
+      return {
+        ...data.serviceSubItem,
+        placeholder: base64,
+      };
+    } else {
+      return data.serviceSubItem;
+    }
   }
-};
+);
