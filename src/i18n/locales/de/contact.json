@@ -1,0 +1,23 @@
+{
+  "title": "Lets make the first step and get in contact.",
+  "description": "Erzähle uns von deinem Projekt oder Ziel – wir freuen uns drauf!",
+  "contact_us_": "Sag Hallo: ",
+  "contact_us_by_mail": "über E-Mail",
+  "contact_us_by_telegram": "über Telegram",
+  "contact_us_by_whatsapp": "über WhatsApp",
+  "seo": {
+    "title": "Sag Hallo",
+    "description": "Erzähle uns von deinem Projekt oder Ziel – wir freuen uns drauf!"
+  },
+  "form": {
+    "email": "E-Mail Adresse",
+    "company": "Firma",
+    "message": "Deine Nachricht",
+    "firstname": "Vorname",
+    "lastname": "Nachname",
+    "phone": "Telefon",
+    "submit": "Anfrage senden",
+    "success": "Vielen Dank! Deine Anfrage haben wir soeben erhalten, wir versuchen dich so schnell wie möglich zu kontaktieren.",
+    "error": "Entschuldigung, beim Senden Ihrer Nachricht ist ein Problem aufgetreten. Bitte versuche es erneut."
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "title": "Let's make the first step and get in contact.",
+  "description": "Tell us about your project or goal – we look forward to it!",
+  "contact_us_": "Say hello: ",
+  "contact_us_by_mail": "via Email",
+  "contact_us_by_telegram": "via Telegram",
+  "contact_us_by_whatsapp": "via WhatsApp",
+  "seo": {
+    "title": "Say Hello!",
+    "description": "Tell us about your project or goal - we look forward to it!"
+  },
+  "form": {
+    "email": "Email address",
+    "company": "Company",
+    "message": "Your message",
+    "firstname": "First Name",
+    "lastname": "Last Name",
+    "phone": "Phone",
+    "submit": "Send Request",
+    "success": "Thank you! We have received your request and will try to contact you as soon as possible.",
+    "error": "Sorry, there was a problem sending your message. Please try again."
+  }
+}

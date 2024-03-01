@@ -1,0 +1,68 @@
+{
+  "seo": {
+    "title": "RedNinjas Digital Agency: Web Development with German Standards",
+    "description": "Explore RedNinjas Agency for expert web development and outsourcing services adhering to German standards. Elevate your online presence with our innovative solutions today"
+  },
+  "hero": {
+    "title": "Wir entwickeln und skalieren digitale Produkte.",
+    "description": "RedNinjas ist deine Agentur für die Entwicklung digitaler Produkte und maximiert dein Wachstum durch intelligentes Outsourcing."
+  },
+  "partners": {
+    "title": "Projekte bekannt aus"
+  },
+  "reviews": {
+    "title": "Hör dir an was unsere Kunden über uns sagen.",
+    "checkout": "Review auf Google zeigen"
+  },
+  "footer": {
+    "title": "Lass uns gemeinsam anpacken und Erfolge erzielen.",
+    "contact_us": "Kontaktiere uns",
+    "company_name": "RedNinjas Limited",
+    "address_line_1": "Andreas Dimitrou 18",
+    "address_line_2": "7060 Larnaca",
+    "address_line_3": "Zypern",
+    "address_line_4": "Planckstraße 13",
+    "address_line_5": "22765 Hamburg",
+    "address_line_6": "Deutschland",
+    "copyright": "® RedNinjas LTD. Alle Rechte vorbehalten"
+  },
+  "navigation": {
+    "imprint": "Impressum",
+    "data-privacy": "Datenschutzerklärung",
+    "services": "Leistungen",
+    "case-studies": "Projekte",
+    "about-us": "Über uns",
+    "outsourcing": "Outsourcing",
+    "blog": "Blog",
+    "contact-us": "Kontaktiere uns"
+  },
+  "faq": {
+    "title": "Häufige Fragen und Anworten zu unseren Dienstleistungen."
+  },
+  "portfolio": {
+    "explore": "Alle Projekte ansehen",
+    "title": " Erkunde, welchen zusätzlichen Nutzen wir unseren Partnern gebracht haben",
+    "watchout": "Projekt anschauen",
+    "coming_soon": "Bald"
+  },
+  "usps": {
+    "title": "Unsere Hingabe fürs Detail inspiriert uns zu Höchstleistungen.",
+    "explore": "Entdecke unsere Services",
+    "usp_1": {
+      "title": "Design",
+      "description": "In unserem Designprozess gestalten wir komplexe Lösungen einfach und benutzerfreundlich, indem wir Benutzererfahrung und visuelle Stärke kombinieren."
+    },
+    "usp_2": {
+      "title": "Entwicklung",
+      "description": "Wir hauchen Produkten mit den neuesten Technologien Leben ein, indem wir uns auf makellose visuelle Umsetzung und präzisen Code konzentrieren"
+    },
+    "usp_3": {
+      "title": "Marketing",
+      "description": "Unser Fokus liegt auf nachhaltiger Nutzergewinnung und der Optimierung der Marktfähigkeit von Produkten, um Umsatz und Wachstum zu maximieren."
+    },
+    "usp_4": {
+      "title": "Strategie",
+      "description": "In unserem kontinuierlichen Strategieprozess analysieren wir Kundenbedürfnisse, identifizieren Produktprobleme und beraten bei Entscheidungen."
+    }
+  }
+}

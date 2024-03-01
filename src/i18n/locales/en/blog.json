@@ -1,0 +1,13 @@
+{
+  "title": "Insights, Workflows, Ideas. Find everything here.",
+  "description": "<strong>We don't just design and develop.</strong> Sometimes, we also put words together. Here, we share our insights and findings from our daily work at RedNinjas.",
+  "seo": {
+    "title": "Blog",
+    "description": "Insights, workflows, ideas about outsourcing, IT services, and RedNinjas. You'll find everything here."
+  },
+  "all": "All Posts",
+  "read_more": "Read More",
+  "author": "by {{name}}",
+  "read_time": "{{minutes}} minutes read",
+  "ago": "Written, {{time}}"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Einblicke, Arbeitsabläufe, Ideen. Hier findest du alles.",
+  "description": "<strong>Wir entwerfen und entwickeln nicht nur.</strong> Manchmal schreiben wir auch Worte auf. Hier teilen wir unsere Einsichten und Erkenntnisse aus unserer täglichen Arbeit bei RedNinjas.",
+  "seo": {
+    "title": "Blog",
+    "description": "Einblicke, Arbeitsabläufe, Ideen rund um Outsourcing, IT-Services und RedNinjas. Hier findest du alles."
+  },
+  "all": "Alle Beiträge",
+  "read_more": "Weiterlesen",
+  "author": "von {{name}}",
+  "read_time": "{{minutes}} Minuten Lesezeit",
+  "ago": "Geschrieben, {{time}}"
+}
