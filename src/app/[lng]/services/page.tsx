@@ -11,6 +11,7 @@ import { getServices } from 'src/lib/rest/get-services';
 import { FooterComponent } from '@/components/layout/footer-component';
 import { getThemes } from '@/components/theme';
 import { createSeoTitle } from '@/lib/seo';
+
 export const revalidate = 86400;
 
 export async function generateMetadata({

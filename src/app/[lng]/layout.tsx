@@ -7,6 +7,7 @@ import { languages } from '@/i18n/settings';
 import { Metadata, Viewport } from 'next';
 import { headers } from 'next/headers';
 import { ClientProvider } from '@/components/client-provider';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -88,6 +89,7 @@ export default function RootLayout({
       </head>
       <body>
         <ClientProvider lng={lng}>{children}</ClientProvider>
+        <SpeedInsights></SpeedInsights>
       </body>
     </html>
   );
