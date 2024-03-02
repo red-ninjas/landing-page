@@ -11,6 +11,7 @@ import { Gradient } from '@himalaya-ui/core/themes/presets';
 
 export interface ClientProviderContextProps {
   background?: Gradient;
+  // eslint-disable-next-line no-unused-vars
   setBackground: (value: Gradient | undefined) => void;
 }
 
