@@ -1,6 +1,12 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 
-export const HYGRAPH_CLIENT = new ApolloClient({
-  uri: process.env.HYGRAPH_API,
-  cache: new InMemoryCache(),
-});
+export const connect = () => {
+  return new ApolloClient({
+    link: new HttpLink({
+      uri: process.env.HYGRAPH_API,
+      fetchOptions: { cache: 'force-cache' },
+    }),
+    ssrMode: typeof window === 'undefined',
+    cache: new InMemoryCache(),
+  });
+};

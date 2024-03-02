@@ -1,11 +1,12 @@
+'use server';
 import { gql } from '@apollo/client';
 import { PageItem } from '../types/page-item';
-import { HYGRAPH_CLIENT } from './client';
+import { connect } from './client';
 import { cache } from 'react';
 
 export const getPage = cache(
   async (language: string, slug: string): Promise<PageItem | undefined> => {
-    const { data } = await HYGRAPH_CLIENT.query({
+    const { data } = await connect().query({
       query: gql`
       query Pages {
         page(locales: ${language}, where: { slug: "${slug}"}) {
@@ -28,7 +29,7 @@ export const getPage = cache(
 );
 
 export const getPagesSlugs = cache(async (): Promise<string[]> => {
-  const { data } = await HYGRAPH_CLIENT.query({
+  const { data } = await connect().query({
     query: gql`
       query Pages {
         pages {

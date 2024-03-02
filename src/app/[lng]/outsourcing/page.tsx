@@ -13,8 +13,8 @@ import { getFaq } from '@/lib/rest/get-faq';
 import { getServices } from '@/lib/rest/get-services';
 import { createSeoTitle } from '@/lib/seo';
 import { PageHeader } from 'src/components/layout/page-header';
-
 export const revalidate = 86400;
+export const dynamic = 'force-static';
 
 export async function generateMetadata({
   params: { lng },

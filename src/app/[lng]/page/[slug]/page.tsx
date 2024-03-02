@@ -12,6 +12,7 @@ import { useMDXComponents } from 'src/components/mdx/mdx-components';
 import { getThemes } from '../../../../components/theme';
 
 export const revalidate = 86400;
+export const dynamic = 'force-static';
 
 export async function generateStaticParams() {
   return await getPagesSlugs();

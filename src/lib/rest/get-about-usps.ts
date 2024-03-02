@@ -1,8 +1,9 @@
+'use server';
 import { gql } from '@apollo/client';
 import { getPlaiceholder } from 'plaiceholder';
 import { PlaceholderRender } from '../types/placeholder-render';
 import { UspItem } from '../types/usp-item';
-import { HYGRAPH_CLIENT } from './client';
+import { connect } from './client';
 import { cache } from 'react';
 
 export const getAboutUSPs = cache(
@@ -10,7 +11,7 @@ export const getAboutUSPs = cache(
     language: string,
     module: 'outsourcing' | 'about' = 'about'
   ): Promise<PlaceholderRender<UspItem>[]> => {
-    const { data } = await HYGRAPH_CLIENT.query({
+    const { data } = await connect().query({
       query: gql`
     query Usps {
       usps(locales: ${language}, orderBy: createdAt_ASC, where: {module: ${module}}) {

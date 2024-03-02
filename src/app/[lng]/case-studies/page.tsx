@@ -13,7 +13,7 @@ import { PageHeader } from 'src/components/layout/page-header';
 import { getPortfolioItems } from 'src/lib/rest/get-portfolio';
 
 export const revalidate = 86400;
-
+export const dynamic = 'force-static';
 export async function generateMetadata({
   params: { lng },
 }: {

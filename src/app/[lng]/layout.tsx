@@ -15,6 +15,7 @@ export async function generateStaticParams() {
 export const viewport: Viewport = {
   themeColor: 'black',
 };
+
 export async function generateMetadata({
   params: { lng },
 }: {

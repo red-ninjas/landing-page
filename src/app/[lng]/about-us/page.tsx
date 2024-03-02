@@ -12,6 +12,7 @@ import { createSeoTitle } from '@/lib/seo';
 import { FactsComponent } from '@/components/about-us/facts';
 
 export const revalidate = 86400;
+export const dynamic = 'force-static';
 
 export async function generateMetadata({
   params: { lng },

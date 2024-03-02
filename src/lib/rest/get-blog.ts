@@ -1,9 +1,10 @@
+'use server';
 import { gql } from '@apollo/client';
 import { getPlaiceholder } from 'plaiceholder';
 import { readingTime } from 'reading-time-estimator';
 import { BlogCategory, BlogItem } from '../types/blog-item';
 import { PlaceholderRender } from '../types/placeholder-render';
-import { HYGRAPH_CLIENT } from './client';
+import { connect } from './client';
 import { cache } from 'react';
 
 export const getBlogCategories = cache(
@@ -15,7 +16,7 @@ export const getBlogCategories = cache(
       }
   }`;
 
-    const { data } = await HYGRAPH_CLIENT.query({
+    const { data } = await connect().query({
       query: CATEGORIES_QUERY,
     });
 
@@ -25,7 +26,7 @@ export const getBlogCategories = cache(
 
 export const getBlogItems = cache(
   async (language: string): Promise<PlaceholderRender<BlogItem>[]> => {
-    const { data } = await HYGRAPH_CLIENT.query({
+    const { data } = await connect().query({
       query: gql`
     query Posts {
       posts(orderBy: updatedAt_DESC, where: { category: { language: ${language} } }) {
@@ -75,7 +76,7 @@ export const getBlogItems = cache(
 
 export const getBlogSlugs = cache(
   async (language: string): Promise<string[]> => {
-    const { data } = await HYGRAPH_CLIENT.query({
+    const { data } = await connect().query({
       query: gql`
       query Posts {
         posts(where: { category: { language: ${language} } }) {
@@ -90,7 +91,7 @@ export const getBlogSlugs = cache(
 
 export const getBlogItem = cache(
   async (slug: string): Promise<PlaceholderRender<BlogItem> | undefined> => {
-    const { data } = await HYGRAPH_CLIENT.query({
+    const { data } = await connect().query({
       query: gql`
       query Post {
         post(where: {slug: "${slug}"}) {

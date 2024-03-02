@@ -1,8 +1,9 @@
+'use server';
 import { gql } from '@apollo/client';
 import { getPlaiceholder } from 'plaiceholder';
 import { PlaceholderRender } from '../types/placeholder-render';
 import { ServiceItem, ServiceSubItem } from '../types/service-item';
-import { HYGRAPH_CLIENT } from './client';
+import { connect } from './client';
 import { cache } from 'react';
 
 export const getServices = cache(
@@ -10,7 +11,7 @@ export const getServices = cache(
     language: string,
     module: 'service' | 'outsourcing' = 'service'
   ): Promise<PlaceholderRender<ServiceItem>[]> => {
-    const { data } = await HYGRAPH_CLIENT.query({
+    const { data } = await connect().query({
       query: gql`
     query Services {
       services(locales: ${language}, orderBy: createdAt_ASC, where: {module: ${module}}) {
@@ -50,7 +51,7 @@ export const getServices = cache(
 
 export const getSubServices = cache(
   async (language: string): Promise<ServiceSubItem[]> => {
-    const { data } = await HYGRAPH_CLIENT.query({
+    const { data } = await connect().query({
       query: gql`
     query Services {
       serviceSubItems(locales: ${language}, orderBy: createdAt_ASC, where: {hasContent: true}) {
@@ -69,7 +70,7 @@ export const getSubServices = cache(
 );
 
 export const getSubServiceSlugs = cache(async (): Promise<string[]> => {
-  const { data } = await HYGRAPH_CLIENT.query({
+  const { data } = await connect().query({
     query: gql`
       query Services {
         serviceSubItems(where: { hasContent: true }) {
@@ -88,7 +89,7 @@ export const getSubServiceItem = cache(
     language: string,
     slug: string
   ): Promise<PlaceholderRender<ServiceSubItem>> => {
-    const { data } = await HYGRAPH_CLIENT.query({
+    const { data } = await connect().query({
       query: gql`
     query ServiceSubItem {
       serviceSubItem(locales: ${language}, where: { slug: "${slug}"}) {

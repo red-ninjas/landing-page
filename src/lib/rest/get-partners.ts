@@ -1,13 +1,14 @@
+'use server';
 import { getPlaiceholder } from 'plaiceholder';
 import type { PartnershipItem } from '../types/partnership-item';
 import { PlaceholderRender } from '../types/placeholder-render';
 import { gql } from '@apollo/client';
-import { HYGRAPH_CLIENT } from './client';
+import { connect } from './client';
 import { cache } from 'react';
 
 export const getPartnerItems = cache(
   async (): Promise<PlaceholderRender<PartnershipItem>[]> => {
-    const { data } = await HYGRAPH_CLIENT.query({
+    const { data } = await connect().query({
       query: gql`
         query Posts {
           partners(orderBy: updatedAt_DESC) {

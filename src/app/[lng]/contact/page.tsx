@@ -7,7 +7,9 @@ import ContactLayout from '@/components/contact/contact-layout';
 import { getThemes } from '@/components/theme';
 import { getFaq } from '@/lib/rest/get-faq';
 import { createSeoTitle } from '@/lib/seo';
+
 export const revalidate = 86400;
+export const dynamic = 'force-static';
 
 export async function generateMetadata({
   params: { lng },
