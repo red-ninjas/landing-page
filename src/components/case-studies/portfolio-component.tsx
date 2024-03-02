@@ -50,7 +50,7 @@ export const PortfolioComponent = ({
             <Grid md={16}>
               <EntryAnimation delay={0} duration={500}>
                 <Text
-                  h1
+                  h2
                   m={0}
                   mb={{ xs: '2rem', xl: 5.75 }}
                   font={{ xs: 2, md: 3.25 }}

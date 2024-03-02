@@ -200,7 +200,11 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
                     </a>
                   </Link>
 
-                  <Link legacyBehavior href={lng == 'de' ? '/en' : '/de'}>
+                  <Link
+                    legacyBehavior
+                    passHref
+                    href={lng == 'de' ? '/en' : '/de'}
+                  >
                     <a className="footer-link">
                       <Globe size={16} />
                       <span>{languagesNames[lng == 'de' ? 'en' : 'de']}</span>
@@ -224,8 +228,8 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
           gap: 6px;
           display: flex;
           white-space: nowrap;
-          padding-left: 2rem;
-          padding-right: 2rem;
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
           word-break: keep-all;
           transition-property:
             color,
@@ -284,6 +288,7 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
           display: flex;
           justify-content: flex-start;
           align-items: center;
+          flex-wrap: wrap;
         }
         .footer-disclaimer-outer {
           display: flex;
