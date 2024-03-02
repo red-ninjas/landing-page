@@ -6,11 +6,12 @@ import { fallbackLng, languages } from '@/i18n/settings';
 
 import { CaseStudyViewItem } from '@/lib/types/case-study-item';
 import { PlaceholderRender } from '@/lib/types/placeholder-render';
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useContext, useEffect } from 'react';
 import { PageHeader } from 'src/components/layout/page-header';
 import { FooterComponent } from '../layout/footer-component';
 import { getThemes } from '../theme';
 import PortfolioViewComponent from './portfolio-view-component';
+import { ClientProviderContext } from '../client-provider';
 
 export interface PortfolioLayoutProps {
   lng: string;
@@ -23,6 +24,19 @@ export default function PortfolioLayout({
 }: PropsWithChildren<PortfolioLayoutProps>) {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   const themes = getThemes();
+  const { setBackground } = useContext(ClientProviderContext);
+
+  useEffect(() => {
+    if (item.gradientStart && item.gradientEnd) {
+      setBackground({
+        from: item.gradientStart.hex,
+        to: item.gradientStart.hex,
+      });
+    }
+    return () => {
+      setBackground(undefined);
+    };
+  }, [item.gradientStart, item.gradientEnd]);
 
   return (
     <>

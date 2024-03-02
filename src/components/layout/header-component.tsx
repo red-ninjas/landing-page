@@ -10,14 +10,16 @@ import { hexToRgb } from '@himalaya-ui/core/utils/color';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { BrandLogo, Brandtitle } from '../icons/logo';
+import { ClientProviderContext } from '../client-provider';
 
 export const HeaderComponent = ({ lng }: { lng: string }) => {
   const [isActive, setIsActive] = useState<boolean>(true);
   const [position, setPosition] = useState(0);
   const currentPath = usePathname();
   const { t } = useTranslation(lng, 'home');
+  const { background } = useContext(ClientProviderContext);
 
   useEffect(() => {
     if (document !== null) {
@@ -44,7 +46,10 @@ export const HeaderComponent = ({ lng }: { lng: string }) => {
   return (
     <div className={classNames('app-header', isActive ? 'show' : 'hide')}>
       <Header
-        style={{ background: theme.palette.background, border: 0 }}
+        style={{
+          background: background ? background.from : theme.palette.background,
+          border: 0,
+        }}
         h={'88px'}
       >
         <Header.Left>

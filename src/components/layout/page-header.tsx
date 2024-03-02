@@ -7,10 +7,11 @@ import Video from '@himalaya-ui/core/video';
 import Box from '@himalaya-ui/core/box';
 import ArrowLeft from '@himalaya-ui/core/icons/arrowLeft';
 import PageWidth from '@himalaya-ui/core/page-width';
-import useTheme from '@himalaya-ui/core/use-theme';
 import Image from 'next/image';
 import NextLink from 'next/link';
+import { useContext } from 'react';
 import { FadeinAnimation } from '../animations/fadein-animation';
+import { ClientProviderContext } from '../client-provider';
 
 export interface PageHeaderProps {
   title: string;
@@ -37,15 +38,22 @@ export const PageHeader = ({
   subTitle,
   align = 'flex-start',
 }: PageHeaderProps) => {
-  const theme = useTheme();
+  const { background } = useContext(ClientProviderContext);
+
   return (
-    <>
+    <div
+      style={{
+        background: background
+          ? `linear-gradient(${background.from}, ${background.to})`
+          : undefined,
+      }}
+    >
       {routeBack && (
         <Box
           py={0.7}
           style={{
-            borderBottom: '1px solid ' + theme.palette.border,
-            borderTop: '1px solid ' + theme.palette.border,
+            borderBottom: '1px solid hsla(0,0%,100%,.2)',
+            borderTop: '1px solid hsla(0,0%,100%,.2)',
           }}
         >
           <PageWidth py={0}>
@@ -227,6 +235,6 @@ export const PageHeader = ({
           `}</style>
         </Box>
       </PageWidth>
-    </>
+    </div>
   );
 };

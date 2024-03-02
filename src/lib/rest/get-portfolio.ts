@@ -76,6 +76,12 @@ export const getPortfolioItem = cache(
          createdAt
          updatedAt
          content
+         gradientStart {
+          hex
+         }
+          gradientEnd {
+           hex
+         }
          id
          slug
          description

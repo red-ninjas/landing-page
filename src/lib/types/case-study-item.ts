@@ -15,6 +15,8 @@ export type CaseStudyViewItem = {
   content: string;
   title: string;
   slug: string;
+  gradientStart?: { hex: string };
+  gradientEnd?: { hex: string };
   description: string;
   createdAt: string;
   updatedAt: string;
