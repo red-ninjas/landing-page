@@ -31,7 +31,7 @@ export const getPortfolioItems = cache(
     const { data } = await connect().query({
       query: gql`
     query CaseStudies {
-      caseStudies(locales: ${language}, first: ${amount}, orderBy: updatedAt_DESC) {
+      caseStudies(locales: ${language}, first: ${amount}, orderBy: order_ASC) {
         createdAt
         updatedAt
         id

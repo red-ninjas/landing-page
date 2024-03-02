@@ -43,7 +43,8 @@ export const PortfolioItem = ({
             >
               <div className="img-wrapper">
                 <Image
-                  quality={90}
+                  quality={100}
+                  sizes="600px"
                   src={item.picture.url}
                   fill={true}
                   placeholder="blur"
@@ -71,7 +72,7 @@ export const PortfolioItem = ({
           >
             <div className="img-wrapper">
               <Image
-                quality={90}
+                quality={100}
                 src={item.picture.url}
                 fill={true}
                 style={{
