@@ -1,7 +1,7 @@
 {
   "seo": {
-    "title": "RedNinjas Digital Agency: Web Development with German Standards",
-    "description": "Explore RedNinjas Agency for expert web development and outsourcing services adhering to German standards. Elevate your online presence with our innovative solutions today"
+    "title": "RedNinjas Digital Agentur: Web- & App-Entwicklung aus Zypern",
+    "description": "Erkunde unsere digitale Agentur, die sich auf professionelle Webentwicklung und Outsourcing-Dienstleistungen nach deutschen Qualitätsstandards spezialisiert hat."
   },
   "hero": {
     "title": "Wir entwickeln und skalieren digitale Produkte.",
@@ -49,11 +49,11 @@
     "title": "Unsere Hingabe fürs Detail inspiriert uns zu Höchstleistungen.",
     "explore": "Entdecke unsere Services",
     "usp_1": {
-      "title": "Design",
+      "title": "UX/UI Design",
       "description": "In unserem Designprozess gestalten wir komplexe Lösungen einfach und benutzerfreundlich, indem wir Benutzererfahrung und visuelle Stärke kombinieren."
     },
     "usp_2": {
-      "title": "Entwicklung",
+      "title": "Web/App-Entwicklung",
       "description": "Wir hauchen Produkten mit den neuesten Technologien Leben ein, indem wir uns auf makellose visuelle Umsetzung und präzisen Code konzentrieren"
     },
     "usp_3": {
@@ -61,7 +61,7 @@
       "description": "Unser Fokus liegt auf nachhaltiger Nutzergewinnung und der Optimierung der Marktfähigkeit von Produkten, um Umsatz und Wachstum zu maximieren."
     },
     "usp_4": {
-      "title": "Strategie",
+      "title": "Strategie & Research",
       "description": "In unserem kontinuierlichen Strategieprozess analysieren wir Kundenbedürfnisse, identifizieren Produktprobleme und beraten bei Entscheidungen."
     }
   }

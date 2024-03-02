@@ -1,7 +1,7 @@
 {
   "seo": {
-    "title": "RedNinjas Agency: Web & Software Development and Outsourcing with German Standards",
-    "description": "Explore RedNinjas Agency for expert web development and outsourcing services adhering to German standards. Elevate your online presence with our innovative solutions today"
+    "title": "RedNinjas Digital Agency: Web & App Development and Outsourcing with German Standards",
+    "description": "Explore our digital agency specializing in professional web development and outsourcing services according to European quality standards."
   },
   "hero": {
     "title": "We develop and scale digital products.",
@@ -49,11 +49,11 @@
     "title": "Our dedication to detail inspires us to excel.",
     "explore": "Explore our services",
     "usp_1": {
-      "title": "Design",
+      "title": "UX/UI Design",
       "description": "In our design process, we make complex solutions simple and user-friendly by combining user experience with visual strength."
     },
     "usp_2": {
-      "title": "Development",
+      "title": "Web/App development",
       "description": "We breathe life into products with the latest technologies, focusing on flawless visual execution and precise code."
     },
     "usp_3": {
@@ -61,7 +61,7 @@
       "description": "Our focus is on sustainable user acquisition and optimizing product marketability to maximize revenue and growth."
     },
     "usp_4": {
-      "title": "Strategy",
+      "title": "Strategy & Research",
       "description": "In our continuous strategy process, we analyze customer needs, identify product issues, and provide guidance on decisions."
     }
   }

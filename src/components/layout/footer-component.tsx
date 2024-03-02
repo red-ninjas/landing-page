@@ -156,10 +156,7 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
                   </a>
                 </Link>
 
-                <Link
-                  legacyBehavior
-                  href={`https://www.linkedin.com/company/redninjas/`}
-                >
+                <Link legacyBehavior href={`https://dribbble.com/redninjas`}>
                   <a target="_blank" className="footer-navigation-link">
                     <Dribbble size={22} />
                     Dribbble
