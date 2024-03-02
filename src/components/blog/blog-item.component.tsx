@@ -33,7 +33,7 @@ export default ({
     <Card p={0} m={0} borderSize={0} w={'100%'}>
       <Card.Content p={0} m={0}>
         <Grid.Container gap={index == 0 ? 4 : 0}>
-          <Grid xs={index == 0 ? 14 : 24}>
+          <Grid xs={24} md={index == 0 ? 14 : 24}>
             <Box w={'100%'}>
               <EntryAnimation delay={0} duration={700}>
                 <NextLink legacyBehavior href={`/${lng}/blog/` + item.slug}>
@@ -61,7 +61,7 @@ export default ({
               </EntryAnimation>
             </Box>
           </Grid>
-          <Grid xs={index == 0 ? 10 : 24}>
+          <Grid xs={24} md={index == 0 ? 10 : 24}>
             <Box>
               <EntryAnimation delay={0} duration={1000}>
                 <Text

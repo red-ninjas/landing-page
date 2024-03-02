@@ -2,6 +2,8 @@ import createMDX from '@next/mdx';
 import joinLine from 'rehype-join-line';
 import remarkGfm from 'remark-gfm';
 import remarkMdx from 'remark-mdx';
+const getHash = (source, length) =>
+  createHash('shake256', { outputLength: length }).update(source).digest('hex');
 
 const withMDX = createMDX({
   extension: /\.(md|mdx)?$/,
@@ -14,27 +16,54 @@ const withMDX = createMDX({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (config, { isServer }) => {
-    if (isServer === false) {
-      config.module.rules.push({
-        test: /\.css$/i,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
+  webpack: (config, { dev }) => {
+    // https://github.com/vercel/next.js/discussions/15818
+    let rule, moduleRules, cssLoader;
+    if (
+      (rule = config.module.rules.find((rule) =>
+        Object.keys(rule).includes('oneOf')
+      ))
+    ) {
+      if (
+        (moduleRules = rule.oneOf.filter(
+          (r) =>
+            ('test.module.scss'.match(r.test) ||
+              'test.module.css'.match(r.test)) &&
+            Array.isArray(r.use)
+        ))
+      ) {
+        for (const moduleRule of moduleRules) {
+          if (
+            (cssLoader = moduleRule.use.find((u) =>
+              u.loader.match('/css-loader')
+            ))
+          ) {
+            delete cssLoader.options.modules.getLocalIdent;
+            cssLoader.options = {
+              ...cssLoader.options,
               modules: {
-                localIdentName: '[path][name]__[local]',
+                ...cssLoader.options.modules,
+                getLocalIdent: (
+                  { resourcePath },
+                  localIdentName,
+                  localName
+                ) => {
+                  const { name } = path.parse(resourcePath);
+                  const moduleName = name
+                    .replace(/\.module/g, '')
+                    .replace(/\./g, '-');
+                  return dev
+                    ? `${moduleName}--${localName}--${getHash(resourcePath, 2)}`
+                    : `_${getHash(`${resourcePath}${localName}`, 4)}`;
+                },
               },
-            },
-          },
-          'sass-loader',
-        ],
-      });
+            };
+          }
+        }
+      }
     }
     return config;
   },
-
   reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
   swcMinify: true,
   poweredByHeader: false,
