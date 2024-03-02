@@ -50,9 +50,7 @@ export const ReviewItem = ({ lng, item }: { lng: string; item: any }) => {
               />
             </Grid>
             <Grid xs>
-              <Text h4 m={0}>
-                {item.author_name}
-              </Text>
+              <Text m={0}>{item.author_name}</Text>
             </Grid>
           </Grid.Container>
         </Link>
