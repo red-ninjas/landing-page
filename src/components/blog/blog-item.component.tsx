@@ -69,7 +69,7 @@ export default ({
                   lineHeight={'1.75rem'}
                   p={0}
                   mb={'0.5rem'}
-                  mt={'1.5rem'}
+                  mt={index == 0 ? 0 : '1.5rem'}
                   style={{ color: theme.palette.accents_7 }}
                 >
                   <span>{t('author', { name: item.author.name })}</span>
