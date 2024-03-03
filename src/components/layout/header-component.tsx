@@ -11,12 +11,11 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useContext, useEffect, useState } from 'react';
-import { BrandLogo, Brandtitle } from '../icons/logo';
 import { ClientProviderContext } from '../client-provider';
+import { BrandLogo, Brandtitle } from '../icons/logo';
 
 export const HeaderComponent = ({ lng }: { lng: string }) => {
   const [isActive, setIsActive] = useState<boolean>(true);
-  const [position, setPosition] = useState(0);
   const currentPath = usePathname();
   const { t } = useTranslation(lng, 'home');
   const { background } = useContext(ClientProviderContext);
@@ -24,14 +23,13 @@ export const HeaderComponent = ({ lng }: { lng: string }) => {
   useEffect(() => {
     if (document !== null) {
       const element = document.getElementById('app') as HTMLDivElement;
-
       if (element !== null) {
-        setPosition(element.scrollTop);
+        let position = element.scrollTop;
 
         const handleScroll = () => {
           const moving = element.scrollTop;
           setIsActive(position > moving);
-          setPosition(moving);
+          position = moving;
         };
         element.addEventListener('scroll', handleScroll);
         return () => {
@@ -39,7 +37,7 @@ export const HeaderComponent = ({ lng }: { lng: string }) => {
         };
       }
     }
-  });
+  }, []);
 
   const theme = useTheme();
 
