@@ -179,7 +179,6 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
                   lineHeight={1.5}
                   style={{
                     textAlign: 'left',
-                    width: '100%',
                     color: theme.palette.foreground,
                   }}
                 >
@@ -289,7 +288,6 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
         }
         .footer-disclaimer-outer {
           display: flex;
-          align-items: center;
           margin-top: 2.5rem;
         }
         .footer-nav {
