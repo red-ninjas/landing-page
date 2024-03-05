@@ -82,7 +82,11 @@ export default ({
                 </Text>
               </EntryAnimation>
               <EntryAnimation delay={0} duration={1200}>
-                <NextLink legacyBehavior href={`/${lng}/blog/` + item.slug}>
+                <NextLink
+                  passHref
+                  legacyBehavior
+                  href={`/${lng}/blog/${item.slug}`}
+                >
                   <Link underline="hover">
                     <Text h2 m={0} font={'1.5rem'} lineHeight={'2rem'}>
                       {item.title}
@@ -95,7 +99,7 @@ export default ({
               </EntryAnimation>
 
               <EntryAnimation delay={0} duration={1500}>
-                <NextLink legacyBehavior href={`/${lng}/blog/` + item.slug}>
+                <NextLink legacyBehavior href={`/${lng}/blog/${item.slug}`}>
                   <a>
                     <Button
                       htmlType={'button'}
