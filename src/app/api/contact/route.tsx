@@ -9,6 +9,7 @@ export async function POST(req: NextRequest) {
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
+    secure: false, // upgrade later with STARTTLS
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
@@ -29,9 +30,9 @@ export async function POST(req: NextRequest) {
       </style>
       <div>
         <h4>New Contact Form Submission</h4>
-        
+
         <p>You have received a new submission from your contact form. Here are the details:</p>
-        
+
         <ul>
           <li><strong>First Name:</strong> ${firstname}</li>
           <li><strong>Last Name:</strong> ${lastname}</li>
@@ -40,7 +41,7 @@ export async function POST(req: NextRequest) {
           <li><strong>Company:</strong> ${company ? company : 'Not provided'}</li>
           <li><strong>Message:</strong> ${message}</li>
         </ul>
-        
+
         <p class="footer">Please respond to this email at your earliest convenience to follow up with the inquiry.</p>
       </div>
     `,
@@ -58,6 +59,7 @@ export async function POST(req: NextRequest) {
       }
     );
   } catch (error) {
+    console.log(error);
     return new Response(JSON.stringify({ message: 'Failed to send email' }), {
       status: 500,
       headers: {
