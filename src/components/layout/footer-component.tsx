@@ -69,7 +69,6 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
       <PageWidth>
         <div className="footer-outro">
           <Grid.Container>
-
             <Grid md={6} lg={6} xs={12} className="sm-order-3">
               <address className="footer-address">
                 <Text
