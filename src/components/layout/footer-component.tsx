@@ -69,6 +69,37 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
       <PageWidth>
         <div className="footer-outro">
           <Grid.Container>
+
+            <Grid md={6} lg={6} xs={12} className="sm-order-3">
+              <address className="footer-address">
+                <Text
+                  b
+                  m={0}
+                  p={0}
+                  font={'1.125rem'}
+                  lineHeight={'1.75rem'}
+                  mb={1}
+                >
+                  {t('footer.company_name')}
+                </Text>
+
+                <Text
+                  m={0}
+                  p={0}
+                  font={1}
+                  lineHeight={'1.5rem'}
+                  style={{
+                    color: theme.palette.accents_7,
+                  }}
+                >
+                  {t('footer.address_line_1')}
+                  <br></br>
+                  {t('footer.address_line_2')}
+                  <br></br>
+                  <b>{t('footer.address_line_3')}</b>
+                </Text>
+              </address>
+            </Grid>
             <Grid md={6} lg={6} xs={12} className="sm-order-3">
               <address className="footer-address">
                 <Text
