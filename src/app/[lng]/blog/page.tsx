@@ -10,8 +10,8 @@ import { getBlogCategories, getBlogItems } from 'src/lib/rest/get-blog';
 import BlogOverviewComponent from 'src/components/blog/blog-overview.component';
 import { createSeoTitle } from '@/lib/seo';
 
-export const revalidate = 86400;
-export const dynamic = 'force-static';
+export const revalidate = 30;
+
 export async function generateMetadata({
   params: { lng },
 }: {

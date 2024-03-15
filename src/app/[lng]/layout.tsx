@@ -14,6 +14,10 @@ export async function generateStaticParams() {
 }
 export const viewport: Viewport = {
   themeColor: 'black',
+  width: 'device-width',
+  initialScale: 1.0,
+  minimumScale: 1.0,
+  height: 'device-height',
 };
 
 export async function generateMetadata({

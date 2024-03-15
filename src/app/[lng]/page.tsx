@@ -13,7 +13,7 @@ import { getPortfolioItems } from '@/lib/rest/get-portfolio';
 import { getReviews } from '@/lib/rest/get-reviews';
 import ThemeProvider from '@himalaya-ui/core/use-config/theme-provider';
 
-export const revalidate = 86400;
+export const revalidate = 3600;
 export const dynamic = 'force-static';
 
 export async function generateMetadata({
