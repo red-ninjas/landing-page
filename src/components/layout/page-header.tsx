@@ -82,7 +82,7 @@ export const PageHeader = ({
         <Box pt={{ xs: 3.75, xl: 7.5 }} pb={{ xs: 5.75, xl: 11.25 }}>
           <Grid.Container gap={2} justify={align}>
             {subTitle && (
-              <Grid justify={align} lg={18} md={20}>
+              <Grid justify={align} xs={24} lg={18} md={20}>
                 <FadeinAnimation delay={0} duration={500} onStart={true}>
                   <Text
                     h4
@@ -97,7 +97,7 @@ export const PageHeader = ({
               </Grid>
             )}
 
-            <Grid justify={align} lg={18} md={20}>
+            <Grid justify={align} xs={24} lg={18} md={20}>
               <FadeinAnimation delay={0} duration={500} onStart={true}>
                 <Text
                   h1
@@ -112,7 +112,7 @@ export const PageHeader = ({
             </Grid>
 
             {description && (
-              <Grid justify={align} lg={14} md={20} mt={2.5}>
+              <Grid justify={align} xs={24} lg={14} md={20} mt={2.5}>
                 <FadeinAnimation delay={0} duration={500} onStart={true}>
                   <Text font={'1.125rem'} lineHeight={'1.75rem'} m={0}>
                     <span
@@ -123,7 +123,7 @@ export const PageHeader = ({
               </Grid>
             )}
             {image && placeholder && (
-              <Grid justify={align} lg={24} md={24} mt={2.5}>
+              <Grid justify={align} xs={24} lg={24} md={24} mt={2.5}>
                 <Box style={{ width: '100%' }}>
                   <div className="header-thumbnail">
                     <div className="img-wrapper">
@@ -146,7 +146,7 @@ export const PageHeader = ({
             )}
 
             {video && (
-              <Grid justify={align} lg={24} md={24} mt={2.5}>
+              <Grid justify={align} xs={24} lg={24} md={24} mt={2.5}>
                 <Box style={{ width: '100%' }}>
                   <FadeinAnimation delay={0} duration={500} onStart={true}>
                     <div className="video-container">
@@ -164,7 +164,7 @@ export const PageHeader = ({
             )}
 
             {addional && (
-              <Grid justify={align} lg={14} md={20} mt={2.5}>
+              <Grid justify={align} xs={24} lg={14} md={20} mt={2.5}>
                 <FadeinAnimation delay={0} duration={500} onStart={true}>
                   {addional}
                 </FadeinAnimation>
