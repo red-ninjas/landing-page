@@ -1,7 +1,6 @@
 'use client';
 
 import Text from '@himalaya-ui/core/text';
-import useTheme from '@himalaya-ui/core/use-theme';
 import { EntryAnimation } from '../animations/entry-animation';
 
 export const USPItem = ({
@@ -11,8 +10,6 @@ export const USPItem = ({
   title: string;
   description: string;
 }) => {
-  const theme = useTheme();
-
   return (
     <EntryAnimation delay={0} duration={1000}>
       <div className="usp-item">
@@ -31,7 +28,7 @@ export const USPItem = ({
           m={0}
           mt={1}
           lineHeight={'1.75rem'}
-          style={{ fontWeight: 400, color: theme.palette.accents_7 }}
+          style={{ fontWeight: 400, color: 'var(--color-foreground-700)' }}
         >
           {description}
         </Text>

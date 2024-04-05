@@ -6,9 +6,7 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import useTheme from '@himalaya-ui/core/use-theme';
 import type { LanguageKeysValues } from '@/lib/types/languages';
-
 import { useTranslation } from '@/i18n/client';
 import { EntryAnimation } from '../animations/entry-animation';
 import { PlaceholderRender } from 'src/lib/types/placeholder-render';
@@ -23,7 +21,6 @@ export const PortfolioItem = ({
   item: PlaceholderRender<CaseStudyItem>;
   index: number;
 }) => {
-  const theme = useTheme();
   const { t } = useTranslation(lng, 'home');
 
   return (
@@ -105,7 +102,7 @@ export const PortfolioItem = ({
           mt={1}
           font={1}
           lineHeight={'1.75rem'}
-          style={{ color: theme.palette.accents_3 }}
+          style={{ color: 'var(--color-foreground-300)' }}
         >
           {item.description}
         </Text>

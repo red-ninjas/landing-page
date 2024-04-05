@@ -5,7 +5,6 @@ import Grid from '@himalaya-ui/core/grid';
 import PageWidth from '@himalaya-ui/core/page-width';
 import Text from '@himalaya-ui/core/text';
 import useMediaQuery from '@himalaya-ui/core/use-media-query';
-import useTheme from '@himalaya-ui/core/use-theme';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { PlaceholderRender } from 'src/lib/types/placeholder-render';
@@ -25,7 +24,6 @@ export const PortfolioComponent = ({
   showMore?: boolean;
   showTitle?: boolean;
 }) => {
-  const theme = useTheme();
   const { t } = useTranslation(lng, 'home');
   const isSM = useMediaQuery('sm', { match: 'up' });
 
@@ -36,14 +34,7 @@ export const PortfolioComponent = ({
   }, [isSM]);
 
   return (
-    <Section
-      pt={{ xs: 5.75, xl: 7.5 }}
-      pb={0}
-      style={{
-        background: theme.palette.background,
-        color: theme.palette.foreground,
-      }}
-    >
+    <Section pt={{ xs: 5.75, xl: 7.5 }} pb={0}>
       <PageWidth py={0}>
         {showTitle && (
           <Grid.Container>

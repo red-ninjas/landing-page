@@ -2,11 +2,12 @@
 
 import { useTranslation } from '@/i18n/client';
 import MobileMenu from '@himalaya-ui/core/mobile-menu';
-import { useLayout } from '@himalaya-ui/core/use-layout/layout-context';
+import { useConfig } from '@himalaya-ui/core/use-config';
+
 import { MobileMenuProvider } from '@himalaya-ui/core/use-mobile-menu';
 import { PropsWithChildren } from 'react';
 import { HeaderComponent } from './header-component';
-
+import NextLink from 'next/link';
 export interface ClientLayoutProps {
   lng: string;
 }
@@ -14,43 +15,27 @@ export const ClientLayout = ({
   children,
   lng,
 }: PropsWithChildren<ClientLayoutProps>) => {
-  const layout = useLayout();
+  const { layout } = useConfig();
   const { t } = useTranslation(lng, 'home');
+
+  const menuItems = [
+    { title: 'Home', url: `/${lng}` },
+    { title: t('navigation.services'), url: `/${lng}/services` },
+    { title: t('navigation.case-studies'), url: `/${lng}/case-studies` },
+    { title: t('navigation.outsourcing'), url: `/${lng}/outsourcing` },
+    { title: t('navigation.about-us'), url: `/${lng}/about-us` },
+    { title: t('navigation.blog'), url: `/${lng}/blog` },
+    { title: t('navigation.contact-us'), url: `/${lng}/contact` },
+  ];
 
   return (
     <MobileMenuProvider>
       <MobileMenu w={'90%'} direction="right">
-        <MobileMenu.Item scale={1.5} title={'Home'} url={`/${lng}`} />
-        <MobileMenu.Item
-          scale={1.5}
-          title={t('navigation.services')}
-          url={`/${lng}/services`}
-        />
-        <MobileMenu.Item
-          scale={1.5}
-          title={t('navigation.case-studies')}
-          url={`/${lng}/case-studies`}
-        />
-        <MobileMenu.Item
-          scale={1.5}
-          title={t('navigation.outsourcing')}
-          url={`/${lng}/outsourcing`}
-        />
-        <MobileMenu.Item
-          scale={1.5}
-          title={t('navigation.about-us')}
-          url={`/${lng}/about-us`}
-        />
-        <MobileMenu.Item
-          scale={1.5}
-          title={t('navigation.blog')}
-          url={`/${lng}/blog`}
-        />
-        <MobileMenu.Item
-          scale={1.5}
-          title={t('navigation.contact-us')}
-          url={`/${lng}/contact`}
-        />
+        {menuItems.map((item, index) => (
+          <NextLink key={index} passHref legacyBehavior href={item.url}>
+            <MobileMenu.Item scale={1.5} title={item.title} />
+          </NextLink>
+        ))}
       </MobileMenu>
 
       <div id="app" className="app-layout">

@@ -1,15 +1,13 @@
 'use client';
 
-import ThemeProvider from '@himalaya-ui/core/use-config/theme-provider';
-
 import { fallbackLng, languages } from '@/i18n/settings';
 
 import { PageItem } from '@/lib/types/page-item';
 import { PropsWithChildren } from 'react';
 import { PageHeader } from 'src/components/layout/page-header';
 import { FooterComponent } from '../layout/footer-component';
-import { getThemes } from '../theme';
 import PageView from './page-view-component';
+import LightThemeWrapper from '../layout/light-mode-wrapper';
 
 export interface PageLayoutProps {
   lng: string;
@@ -21,14 +19,13 @@ export default function PageLayout({
   children,
 }: PropsWithChildren<PageLayoutProps>) {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
-  const themes = getThemes();
 
   return (
     <>
       <PageHeader title={item.title}></PageHeader>
-      <ThemeProvider themes={themes} themeType="light">
+      <LightThemeWrapper>
         <PageView>{children}</PageView>
-      </ThemeProvider>
+      </LightThemeWrapper>
       <FooterComponent lng={lng}></FooterComponent>
     </>
   );

@@ -2,7 +2,6 @@
 
 import PageWidth from '@himalaya-ui/core/page-width';
 import Section from '@himalaya-ui/core/section';
-import useTheme from '@himalaya-ui/core/use-theme';
 import Box from '@himalaya-ui/core/box';
 import Image from 'next/image';
 import { PropsWithChildren } from 'react';
@@ -13,17 +12,8 @@ export interface BlogViewProps {
   item: PlaceholderRender<BlogItem>;
 }
 export default ({ item, children }: PropsWithChildren<BlogViewProps>) => {
-  const theme = useTheme();
-
   return (
-    <Section
-      pt={{ xs: 5.75, xl: 7.5 }}
-      pb={{ xs: 5.75, lg: 11.25 }}
-      style={{
-        background: theme.palette.background,
-        color: theme.palette.foreground,
-      }}
-    >
+    <Section pt={{ xs: 5.75, xl: 7.5 }} pb={{ xs: 5.75, lg: 11.25 }}>
       <PageWidth py={0}>
         {item.coverImage.url && (
           <Box mb={3}>

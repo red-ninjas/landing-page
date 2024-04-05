@@ -7,7 +7,6 @@ import Grid from '@himalaya-ui/core/grid';
 import PageWidth from '@himalaya-ui/core/page-width';
 import Section from '@himalaya-ui/core/section';
 import Text from '@himalaya-ui/core/text';
-import useTheme from '@himalaya-ui/core/use-theme';
 import { PartnerItem } from './partner-item';
 import { PlaceholderRender } from '@/lib/types/placeholder-render';
 
@@ -18,17 +17,9 @@ export const PartnersComponent = ({
   lng: string;
   items: PlaceholderRender<PartnershipItem>[];
 }) => {
-  const theme = useTheme();
   const { t } = useTranslation(lng, 'home');
   return (
-    <Section
-      pt={{ xs: 5.75, lg: 7.5 }}
-      pb={{ xs: '0', xl: '1.5rem' }}
-      style={{
-        background: theme.palette.background,
-        color: theme.palette.foreground,
-      }}
-    >
+    <Section pt={{ xs: 5.75, lg: 7.5 }} pb={{ xs: '0', xl: '1.5rem' }}>
       <PageWidth py={0}>
         <Grid.Container justify="center">
           <Grid lg={16} md={20}>
@@ -42,7 +33,7 @@ export const PartnersComponent = ({
                   fontWeight: 400,
                   textAlign: 'center',
                   textTransform: 'uppercase',
-                  color: theme.palette.accents_1,
+                  color: 'var(--color-foreground-100)',
                 }}
               >
                 {t('partners.title')}

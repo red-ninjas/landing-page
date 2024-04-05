@@ -10,11 +10,9 @@ import Button from '@himalaya-ui/core/button';
 import { useTranslation } from '@/i18n/client';
 import { FadeinAnimation } from '../animations/fadein-animation';
 import { USPItem } from './usp-item';
-import useTheme from '@himalaya-ui/core/use-theme';
 
 export const LandingUsps = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng, 'home');
-  const theme = useTheme();
 
   return (
     <PageWidth py={{ xs: 3.3, md: 7.5 }}>
@@ -43,7 +41,7 @@ export const LandingUsps = ({ lng }: { lng: string }) => {
                 style={{
                   fontWeight: 400,
                   textAlign: 'center',
-                  color: theme.palette.accents_8,
+                  color: 'var(--color-foreground-800)',
                 }}
               >
                 {t('hero.description')}

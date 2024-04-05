@@ -8,7 +8,6 @@ import Card from '@himalaya-ui/core/card';
 import Grid from '@himalaya-ui/core/grid';
 import Link from '@himalaya-ui/core/link';
 import Text from '@himalaya-ui/core/text';
-import useTheme from '@himalaya-ui/core/use-theme';
 import classNames from 'classnames';
 import Image from 'next/image';
 import NextLink from 'next/link';
@@ -26,11 +25,10 @@ export default ({
   item: PlaceholderRender<BlogItem>;
   index: number;
 }) => {
-  const theme = useTheme();
   const { t } = useTranslation(lng, 'blog');
 
   return (
-    <Card p={0} m={0} borderSize={0} w={'100%'}>
+    <Card p={0} m={0} hasBorder={false} w={'100%'}>
       <Card.Content p={0} m={0}>
         <Grid.Container gap={index == 0 ? 4 : 0}>
           <Grid xs={24} md={index == 0 ? 14 : 24}>
@@ -70,7 +68,7 @@ export default ({
                   p={0}
                   mb={'0.5rem'}
                   mt={index == 0 ? 0 : '1.5rem'}
-                  style={{ color: theme.palette.accents_7 }}
+                  style={{ color: 'var(--color-foreground-700)' }}
                 >
                   <span>{t('author', { name: item.author.name })}</span>
                   <span>&nbsp;-&nbsp;</span>

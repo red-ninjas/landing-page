@@ -9,21 +9,19 @@ import Globe from '@himalaya-ui/core/icons/globe';
 import Linkedin from '@himalaya-ui/core/icons/linkedin';
 import PageWidth from '@himalaya-ui/core/page-width';
 import Text from '@himalaya-ui/core/text';
-import { useLayout } from '@himalaya-ui/core/use-layout/layout-context';
-import useTheme from '@himalaya-ui/core/use-theme';
+import { useConfig } from '@himalaya-ui/core/use-config';
 import Link from 'next/link';
 import { FadeinAnimation } from '../animations/fadein-animation';
 
 export const FooterComponent = ({ lng }: { lng: string }) => {
-  const theme = useTheme();
-  const layout = useLayout();
+  const { layout } = useConfig();
   const { t } = useTranslation(lng, 'home');
 
   return (
     <footer className="footer">
       <PageWidth
         pb={{ xs: 5.57, md: 11.25 }}
-        style={{ borderBottom: `1px solid ${theme.palette.border}` }}
+        style={{ borderBottom: `1px solid var(--color-border)` }}
       >
         <div className="contact-us-inner">
           <Grid.Container justify={'center'}>
@@ -88,7 +86,7 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
                   font={1}
                   lineHeight={'1.5rem'}
                   style={{
-                    color: theme.palette.accents_7,
+                    color: 'var(--color-foreground-700)',
                   }}
                 >
                   {t('footer.address_line_1')}
@@ -111,7 +109,7 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
                   font={1}
                   lineHeight={1.5}
                   style={{
-                    color: theme.palette.accents_7,
+                    color: 'var(--color-foreground-700)',
                   }}
                 >
                   {t('footer.address_line_4')}
@@ -179,7 +177,7 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
                   lineHeight={1.5}
                   style={{
                     textAlign: 'left',
-                    color: theme.palette.foreground,
+                    color: 'var(--color-foreground-1000)',
                   }}
                 >
                   {t('footer.copyright')}
@@ -246,7 +244,7 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
           position: relative;
           font-size: 0.875rem;
           line-height: 1.25rem;
-          color: ${theme.palette.foreground};
+          color: ${'var(--color-foreground-1000)'};
 
           &:first-of-type {
             margin-left: 2rem;
@@ -258,7 +256,7 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
 
           &:before {
             content: '';
-            background: ${theme.palette.foreground};
+            background: ${'var(--color-foreground-1000)'};
             height: 70%;
             top: 15%;
             position: absolute;
@@ -269,7 +267,7 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
         .disclaim-spacer {
           display: inline-block;
           border: 0;
-          background-color: ${theme.palette.foreground};
+          background-color: ${'var(--color-foreground-1000)'};
           border-style: none;
           height: 0.75rem;
           opacity: 0.3;
@@ -318,7 +316,7 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
         }
 
         .footer-navigation-link {
-          color: ${theme.palette.foreground};
+          color: ${'var(--color-foreground-1000)'};
           font-weight: 500;
           display: flex;
           gap: 6px;
@@ -326,7 +324,7 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
           font-size: 18px;
           &:hover,
           &:focus {
-            color: ${theme.palette.accents_8};
+            color: 'var(--color-background-800)';
           }
         }
 
@@ -345,7 +343,7 @@ export const FooterComponent = ({ lng }: { lng: string }) => {
             order: 3;
           }
           .footer-nav {
-            border-bottom: 1px solid ${theme.palette.border};
+            border-bottom: 1px solid var(--color-border-1000);
           }
           .footer-link {
             &:first-of-type {

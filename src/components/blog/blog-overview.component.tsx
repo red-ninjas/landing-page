@@ -6,7 +6,6 @@ import Section from '@himalaya-ui/core/section';
 import Grid from '@himalaya-ui/core/grid';
 import PageWidth from '@himalaya-ui/core/page-width';
 import Tabs from '@himalaya-ui/core/tabs';
-import useTheme from '@himalaya-ui/core/use-theme';
 import { useState } from 'react';
 import { BlogCategory, BlogItem } from 'src/lib/types/blog-item';
 import BlogItemComponent from './blog-item.component';
@@ -20,7 +19,6 @@ export default ({
   items: PlaceholderRender<BlogItem>[];
   categories: BlogCategory[];
 }) => {
-  const theme = useTheme();
   const { t } = useTranslation(lng, 'blog');
   const [value, setValue] = useState<string>('all');
   const changeHandler = (val) => setValue(val);
@@ -30,14 +28,7 @@ export default ({
   );
 
   return (
-    <Section
-      pt={{ xs: 5.75, xl: 7.5 }}
-      pb={{ xs: 5.75, lg: 11.25 }}
-      style={{
-        background: theme.palette.background,
-        color: theme.palette.foreground,
-      }}
-    >
+    <Section pt={{ xs: 5.75, xl: 7.5 }} pb={{ xs: 5.75, lg: 11.25 }}>
       <PageWidth py={0}>
         <Tabs
           mb={{ xs: 2.625, xl: 3.5 }}

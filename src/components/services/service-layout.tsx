@@ -1,7 +1,5 @@
 'use client';
 
-import ThemeProvider from '@himalaya-ui/core/use-config/theme-provider';
-
 import { fallbackLng, languages } from '@/i18n/settings';
 
 import { PlaceholderRender } from '@/lib/types/placeholder-render';
@@ -9,8 +7,8 @@ import { ServiceSubItem } from '@/lib/types/service-item';
 import { PropsWithChildren } from 'react';
 import { PageHeader } from 'src/components/layout/page-header';
 import { FooterComponent } from '../layout/footer-component';
-import { getThemes } from '../theme';
 import ServiceViewComponent from './service-view-component';
+import LightThemeWrapper from '../layout/light-mode-wrapper';
 
 export interface ServiceLayoutProps {
   lng: string;
@@ -22,7 +20,6 @@ export default function ServiceLayout({
   children,
 }: PropsWithChildren<ServiceLayoutProps>) {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
-  const themes = getThemes();
 
   return (
     <>
@@ -35,9 +32,9 @@ export default function ServiceLayout({
         video={item.video?.url}
         placeholder={item.placeholder}
       ></PageHeader>
-      <ThemeProvider themes={themes} themeType="light">
+      <LightThemeWrapper>
         <ServiceViewComponent>{children}</ServiceViewComponent>
-      </ThemeProvider>
+      </LightThemeWrapper>
       <FooterComponent lng={lng}></FooterComponent>
     </>
   );

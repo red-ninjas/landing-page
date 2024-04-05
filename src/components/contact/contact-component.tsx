@@ -7,7 +7,6 @@ import PageWidth from '@himalaya-ui/core/page-width';
 import Section from '@himalaya-ui/core/section';
 import Text from '@himalaya-ui/core/text';
 import Textarea from '@himalaya-ui/core/textarea';
-import useTheme from '@himalaya-ui/core/use-theme';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { EntryAnimation } from '../animations/entry-animation';
 import { useState } from 'react';
@@ -24,7 +23,6 @@ type Inputs = {
 };
 
 export const ContactComponent = ({ lng }: { lng: string }) => {
-  const theme = useTheme();
   const { t } = useTranslation(lng, 'contact');
 
   const [isLoading, setIsLoading] = useState(false);
@@ -63,14 +61,7 @@ export const ContactComponent = ({ lng }: { lng: string }) => {
   };
 
   return (
-    <Section
-      pb={{ xs: 5.57, lg: 0 }}
-      pt={{ xs: 5.57, lg: 5.75 }}
-      style={{
-        background: theme.palette.background,
-        color: theme.palette.foreground,
-      }}
-    >
+    <Section pb={{ xs: 5.57, lg: 0 }} pt={{ xs: 5.57, lg: 5.75 }}>
       <PageWidth py={0}>
         <Grid.Container>
           <Grid justify="center" lg={14} md={16}>
@@ -190,7 +181,7 @@ export const ContactComponent = ({ lng }: { lng: string }) => {
                     <LoadingSpinner
                       w={3}
                       mr={0.5}
-                      color={theme.palette.background}
+                      color={'var(--color-background-1000)'}
                     />
                   ) : undefined
                 }

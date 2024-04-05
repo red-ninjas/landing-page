@@ -7,7 +7,6 @@ import Grid from '@himalaya-ui/core/grid';
 import PageWidth from '@himalaya-ui/core/page-width';
 import Section from '@himalaya-ui/core/section';
 import Text from '@himalaya-ui/core/text';
-import useTheme from '@himalaya-ui/core/use-theme';
 import { EntryAnimation } from '../animations/entry-animation';
 import { FAQItemComponent } from './faq-item-component';
 
@@ -18,20 +17,12 @@ export const FAQComponent = ({
   lng: string;
   items: FaqItem[];
 }) => {
-  const theme = useTheme();
   const { t } = useTranslation(lng, 'home');
 
   return (
-    <Section
-      pb={{ xs: 5.57, lg: 11.25 }}
-      pt={{ xs: 5.57, lg: 11.25 }}
-      style={{
-        background: theme.palette.background,
-        color: theme.palette.foreground,
-      }}
-    >
+    <Section pb={{ xs: 5.57, lg: 11.25 }} pt={{ xs: 5.57, lg: 11.25 }}>
       <PageWidth py={0}>
-        <Box style={{ borderTop: `1px solid ${theme.palette.border}` }}>
+        <Box style={{ borderTop: `1px solid var(--color-border-1000)` }}>
           <Grid.Container mt={{ xs: 5.57, lg: 11.25 }}>
             <Grid justify="center" lg={16} md={20}>
               <EntryAnimation delay={0} duration={500}>

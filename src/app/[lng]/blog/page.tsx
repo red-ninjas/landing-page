@@ -1,14 +1,12 @@
-import ThemeProvider from '@himalaya-ui/core/use-config/theme-provider';
-
 import { useTranslation } from '@/i18n/index';
 import { fallbackLng, languages } from '@/i18n/settings';
 
 import { PageHeader } from 'src/components/layout/page-header';
 import { FooterComponent } from '@/components/layout/footer-component';
-import { getThemes } from '@/components/theme';
 import { getBlogCategories, getBlogItems } from 'src/lib/rest/get-blog';
 import BlogOverviewComponent from 'src/components/blog/blog-overview.component';
 import { createSeoTitle } from '@/lib/seo';
+import LightThemeWrapper from '@/components/layout/light-mode-wrapper';
 
 export const revalidate = 30;
 
@@ -35,27 +33,24 @@ export default async function Page({
 }) {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
 
-  const themes = getThemes();
   const { t } = await useTranslation(lng, 'blog');
   const categories = await getBlogCategories(lng);
   const items = await getBlogItems(lng);
 
   return (
     <>
-      <ThemeProvider themes={themes} themeType="dark">
-        <PageHeader
-          title={t('title')}
-          description={t('description')}
-        ></PageHeader>
-        <ThemeProvider themes={themes} themeType="light">
-          <BlogOverviewComponent
-            lng={lng}
-            items={items}
-            categories={categories}
-          ></BlogOverviewComponent>
-        </ThemeProvider>
-        <FooterComponent lng={lng}></FooterComponent>
-      </ThemeProvider>
+      <PageHeader
+        title={t('title')}
+        description={t('description')}
+      ></PageHeader>
+      <LightThemeWrapper>
+        <BlogOverviewComponent
+          lng={lng}
+          items={items}
+          categories={categories}
+        ></BlogOverviewComponent>
+      </LightThemeWrapper>
+      <FooterComponent lng={lng}></FooterComponent>
     </>
   );
 }

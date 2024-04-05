@@ -92,9 +92,9 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body>
+      <body className="dark">
         <ClientProvider lng={lng}>{children}</ClientProvider>
-        <SpeedInsights></SpeedInsights>
+        <SpeedInsights />
       </body>
     </html>
   );

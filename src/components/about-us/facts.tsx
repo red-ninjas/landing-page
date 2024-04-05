@@ -4,12 +4,10 @@ import Grid from '@himalaya-ui/core/grid';
 import PageWidth from '@himalaya-ui/core/page-width';
 import Section from '@himalaya-ui/core/section';
 import Text from '@himalaya-ui/core/text';
-import useTheme from '@himalaya-ui/core/use-theme';
 import { FactItem } from './fact-item';
 import Box from '@himalaya-ui/core/box';
 
 export const FactsComponent = ({ lng }: { lng: string }) => {
-  const theme = useTheme();
   const { t } = useTranslation(lng, 'about-us');
 
   return (
@@ -17,12 +15,12 @@ export const FactsComponent = ({ lng }: { lng: string }) => {
       pb={{ xs: 5.57, lg: 11.25 }}
       pt={0}
       style={{
-        background: theme.palette.background,
-        color: theme.palette.foreground,
+        background: 'var(--color-background-1000)',
+        color: 'var(--color-foreground-1000)',
       }}
     >
       <PageWidth py={0}>
-        <Box style={{ borderTop: `1px solid ${theme.palette.border}` }}>
+        <Box style={{ borderTop: `1px solid var(--color-border-1000)` }}>
           <Grid.Container mt={{ xs: 5.57, lg: 11.25 }} justify="center">
             <Grid lg={20} xs={24} justify="center">
               <Text
