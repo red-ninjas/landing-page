@@ -1,4 +1,3 @@
-'use server';
 import { gql } from '@apollo/client';
 import { FaqItem } from '../types/faq-item';
 import { connect } from './client';

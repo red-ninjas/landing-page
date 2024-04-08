@@ -1,4 +1,3 @@
-'use server';
 import { getPlaiceholder } from 'plaiceholder';
 import type { PartnershipItem } from '../types/partnership-item';
 import { PlaceholderRender } from '../types/placeholder-render';

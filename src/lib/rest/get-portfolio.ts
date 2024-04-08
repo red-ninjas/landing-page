@@ -1,4 +1,3 @@
-'use server';
 import { getPlaiceholder } from 'plaiceholder';
 
 import { gql } from '@apollo/client';

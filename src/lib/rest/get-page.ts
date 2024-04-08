@@ -1,4 +1,3 @@
-'use server';
 import { gql } from '@apollo/client';
 import { PageItem } from '../types/page-item';
 import { connect } from './client';
