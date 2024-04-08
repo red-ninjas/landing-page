@@ -9,7 +9,6 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 
 export const revalidate = 86400;
-export const dynamic = 'force-static';
 
 export async function generateStaticParams() {
   return await getSubServiceSlugs();

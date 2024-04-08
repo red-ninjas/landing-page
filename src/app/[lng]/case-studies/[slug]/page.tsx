@@ -9,7 +9,7 @@ import { useMDXComponents } from '@/components/mdx/mdx-components';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
 export const revalidate = 86400;
-export const dynamic = 'force-static';
+
 export async function generateStaticParams() {
   return await getCaseStudieSlugs();
 }

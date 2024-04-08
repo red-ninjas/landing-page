@@ -10,7 +10,6 @@ import { FactsComponent } from '@/components/about-us/facts';
 import LightThemeWrapper from '@/components/layout/light-mode-wrapper';
 
 export const revalidate = 86400;
-export const dynamic = 'force-static';
 
 export async function generateMetadata({
   params: { lng },
