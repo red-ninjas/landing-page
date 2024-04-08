@@ -13,7 +13,6 @@ import { getPortfolioItems } from '@/lib/rest/get-portfolio';
 import { getReviews } from '@/lib/rest/get-reviews';
 
 export const revalidate = 3600;
-export const dynamic = 'force-static';
 
 export async function generateMetadata({
   params: { lng },
@@ -41,6 +40,7 @@ export default async function Page({
   const partnerItems = await getPartnerItems();
   const faqItems = await getFaq(lng);
   const reviews = await getReviews();
+
   return (
     <>
       <LandingUsps lng={lng}></LandingUsps>

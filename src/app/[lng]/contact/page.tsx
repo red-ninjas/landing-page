@@ -6,7 +6,6 @@ import { getFaq } from '@/lib/rest/get-faq';
 import { createSeoTitle } from '@/lib/seo';
 
 export const revalidate = 86400;
-export const dynamic = 'force-static';
 
 export async function generateMetadata({
   params: { lng },

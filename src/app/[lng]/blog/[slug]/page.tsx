@@ -8,7 +8,7 @@ import { getBlogItem, getBlogSlugs } from 'src/lib/rest/get-blog';
 import { Metadata } from 'next';
 
 export const revalidate = 86400;
-export const dynamic = 'force-static';
+
 export async function generateStaticParams({
   params: { lng },
 }: {
