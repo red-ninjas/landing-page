@@ -1,7 +1,6 @@
 'use client';
 
 import ConfigProvider from '@himalaya-ui/core/config';
-import { LayoutProvider } from '@himalaya-ui/core/layout';
 import NextStyleRegistry from '@himalaya-ui/core/next/registry';
 import { createContext, useState, type PropsWithChildren } from 'react';
 
@@ -32,15 +31,16 @@ export const ClientProvider = ({
   return (
     <ClientProviderContext.Provider value={{ background, setBackground }}>
       <NextStyleRegistry>
-        <ConfigProvider themes={themes} themeType="dark">
-          <LayoutProvider
-            radius={'9999px'}
-            pageWidth={'1200px'}
-            pageMargin={'30px'}
-            pageWidthWithMargin={'1260px'}
-          >
-            <ClientLayout lng={lng}>{children}</ClientLayout>
-          </LayoutProvider>
+        <ConfigProvider
+          themes={themes}
+          themeType="dark"
+          layout={{
+            pageWidth: '1200px',
+            pageMargin: '30px',
+            pageWidthWithMargin: '1260px',
+          }}
+        >
+          <ClientLayout lng={lng}>{children}</ClientLayout>
         </ConfigProvider>
       </NextStyleRegistry>
     </ClientProviderContext.Provider>

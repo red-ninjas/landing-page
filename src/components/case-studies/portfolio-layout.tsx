@@ -1,7 +1,5 @@
 'use client';
 
-import ThemeProvider from '@himalaya-ui/core/use-config/theme-provider';
-
 import { fallbackLng, languages } from '@/i18n/settings';
 
 import { CaseStudyViewItem } from '@/lib/types/case-study-item';
@@ -9,9 +7,9 @@ import { PlaceholderRender } from '@/lib/types/placeholder-render';
 import { PropsWithChildren, useContext, useEffect } from 'react';
 import { PageHeader } from 'src/components/layout/page-header';
 import { FooterComponent } from '../layout/footer-component';
-import { getThemes } from '../theme';
 import PortfolioViewComponent from './portfolio-view-component';
 import { ClientProviderContext } from '../client-provider';
+import LightThemeWrapper from '../layout/light-mode-wrapper';
 
 export interface PortfolioLayoutProps {
   lng: string;
@@ -23,7 +21,6 @@ export default function PortfolioLayout({
   children,
 }: PropsWithChildren<PortfolioLayoutProps>) {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
-  const themes = getThemes();
   const { setBackground } = useContext(ClientProviderContext);
 
   useEffect(() => {
@@ -48,9 +45,9 @@ export default function PortfolioLayout({
         image={item.headerPicture.url}
         placeholder={item.placeholder}
       ></PageHeader>
-      <ThemeProvider themes={themes} themeType="light">
+      <LightThemeWrapper>
         <PortfolioViewComponent>{children}</PortfolioViewComponent>
-      </ThemeProvider>
+      </LightThemeWrapper>
       <FooterComponent lng={lng}></FooterComponent>
     </>
   );

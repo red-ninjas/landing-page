@@ -3,7 +3,6 @@ import { useTranslation } from '@/i18n/client';
 import Button from '@himalaya-ui/core/button';
 import Grid from '@himalaya-ui/core/grid';
 import PageWidth from '@himalaya-ui/core/page-width';
-import useTheme from '@himalaya-ui/core/use-theme';
 import Link from 'next/link';
 import { LanguageKeysValues } from '@/lib/types/languages';
 import { PlaceholderRender } from '@/lib/types/placeholder-render';
@@ -20,18 +19,10 @@ export const ServicesComponent = ({
   items: PlaceholderRender<ServiceItem>[];
   withTopPadding?: boolean;
 }) => {
-  const theme = useTheme();
   const { t } = useTranslation(lng, 'services');
 
   return (
-    <Section
-      pb={0}
-      pt={withTopPadding ? { xs: 5.75, lg: 11.25 } : 0}
-      style={{
-        background: theme.palette.background,
-        color: theme.palette.foreground,
-      }}
-    >
+    <Section pb={0} pt={withTopPadding ? { xs: 5.75, lg: 11.25 } : 0}>
       <PageWidth py={0}>
         <div className="services">
           {items.map((item, index) => {

@@ -1,12 +1,10 @@
 'use client';
 
 import { useTranslation } from '@/i18n/client';
-import { Box } from '@himalaya-ui/core/box/box';
+import Box from '@himalaya-ui/core/box';
 import Button from '@himalaya-ui/core/button';
 import Header from '@himalaya-ui/core/header';
 import { MobileMenuButton } from '@himalaya-ui/core/mobile-menu';
-import useTheme from '@himalaya-ui/core/use-theme';
-import { hexToRgb } from '@himalaya-ui/core/utils/color';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -39,13 +37,15 @@ export const HeaderComponent = ({ lng }: { lng: string }) => {
     }
   }, []);
 
-  const theme = useTheme();
-
   return (
-    <div className={classNames('app-header', isActive ? 'show' : 'hide')}>
+    <div
+      className={classNames('app-header', isActive ? 'visible' : 'invisible')}
+    >
       <Header
         style={{
-          background: background ? background.from : theme.palette.background,
+          background: background
+            ? background.from
+            : 'var(--color-background-1000)',
           border: 0,
         }}
         h={'88px'}
@@ -59,10 +59,7 @@ export const HeaderComponent = ({ lng }: { lng: string }) => {
           </Link>
         </Header.Left>
         <Header.Right>
-          <Box hide={{ xs: false, lg: true }} className="navigation-items">
-            <MobileMenuButton notHiding={true}></MobileMenuButton>
-          </Box>
-          <Box show={{ xs: false, lg: true }} className="navigation-items">
+          <Box hideOn={{ sm: 'down' }} className="navigation-items">
             <Link legacyBehavior href={`/${lng}/services`}>
               <a
                 className={classNames('navigation-item', {
@@ -133,6 +130,8 @@ export const HeaderComponent = ({ lng }: { lng: string }) => {
               </a>
             </Link>
           </Box>
+
+          <MobileMenuButton hideOn={{ md: 'up' }} />
         </Header.Right>
       </Header>
       <style jsx global>{`
@@ -165,23 +164,23 @@ export const HeaderComponent = ({ lng }: { lng: string }) => {
           top: 0px;
           z-index: 9999;
         }
-        .app-header.show {
+        .app-header.visible {
           --tw-translate-y: 0;
         }
-        .app-header.hide {
+        .app-header.invisible {
           --tw-translate-y: -100%;
         }
         .navigation-item {
           display: flex;
           gap: 6px;
           align-items: center;
-          color: ${theme.palette.foreground};
+          color: var(--color-foreground-1000);
           font-size: 16px;
           position: relative;
           line-height: 24px;
           &:hover,
           &:focus {
-            color: ${theme.palette.foreground};
+            color: var(--color-foreground-1000);
           }
 
           &.active {
@@ -200,7 +199,7 @@ export const HeaderComponent = ({ lng }: { lng: string }) => {
             right: 0;
             --tw-bg-opacity: 0;
             background-color: rgba(
-              ${hexToRgb(theme.palette.foreground)},
+              var(--color-foreground-1000-rgb),
               var(--tw-bg-opacity)
             );
             position: absolute;
@@ -220,11 +219,11 @@ export const HeaderComponent = ({ lng }: { lng: string }) => {
         .logo {
           display: inline-flex;
           align-items: center;
-          color: ${theme.palette.foreground};
+          color: var(--color-foreground-1000);
           gap: 14px;
 
           &:hover {
-            color: ${theme.palette.accents_8};
+            color: var(--color-foreground-800);
           }
         }
       `}</style>

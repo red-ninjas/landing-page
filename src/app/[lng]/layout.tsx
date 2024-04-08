@@ -30,6 +30,7 @@ export async function generateMetadata({
   const headersList = headers();
   const pathname = headersList.get('x-invoke-next-path');
   const href = headersList.get('x-invoke-href');
+
   const languages: any = {};
 
   if (pathname && href) {
@@ -92,9 +93,9 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body>
+      <body className="dark">
         <ClientProvider lng={lng}>{children}</ClientProvider>
-        <SpeedInsights></SpeedInsights>
+        <SpeedInsights />
       </body>
     </html>
   );

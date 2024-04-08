@@ -1,7 +1,5 @@
 'use client';
 
-import ThemeProvider from '@himalaya-ui/core/use-config/theme-provider';
-
 import { fallbackLng, languages } from '@/i18n/settings';
 
 import { useTranslation } from '@/i18n/client';
@@ -13,10 +11,10 @@ import Moment from 'react-moment';
 import BlogViewComponent from 'src/components/blog/blog-view.component';
 import { PageHeader } from 'src/components/layout/page-header';
 import { FooterComponent } from '../layout/footer-component';
-import { getThemes } from '../theme';
 import Avatar from '@himalaya-ui/core/avatar';
 import Text from '@himalaya-ui/core/text';
 import Box from '@himalaya-ui/core/box';
+import LightThemeWrapper from '../layout/light-mode-wrapper';
 
 export interface BlogLayoutProps {
   lng: string;
@@ -29,7 +27,6 @@ export default function BlogLayout({
 }: PropsWithChildren<BlogLayoutProps>) {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   const { t } = useTranslation(lng, 'blog');
-  const themes = getThemes();
 
   return (
     <>
@@ -51,9 +48,9 @@ export default function BlogLayout({
           </Box>
         }
       ></PageHeader>
-      <ThemeProvider themes={themes} themeType="light">
+      <LightThemeWrapper>
         <BlogViewComponent item={item}>{children}</BlogViewComponent>
-      </ThemeProvider>
+      </LightThemeWrapper>
       <FooterComponent lng={lng}></FooterComponent>
     </>
   );

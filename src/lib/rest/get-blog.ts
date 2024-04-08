@@ -1,4 +1,3 @@
-'use server';
 import { gql } from '@apollo/client';
 import { getPlaiceholder } from 'plaiceholder';
 import { readingTime } from 'reading-time-estimator';

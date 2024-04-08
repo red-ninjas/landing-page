@@ -6,8 +6,8 @@ import Grid from '@himalaya-ui/core/grid';
 import PageWidth from '@himalaya-ui/core/page-width';
 import Section from '@himalaya-ui/core/section';
 import Text from '@himalaya-ui/core/text';
-import useLayout from '@himalaya-ui/core/use-layout';
-import useTheme from '@himalaya-ui/core/use-theme';
+import { useConfig } from '@himalaya-ui/core/use-config';
+
 import { EntryAnimation } from '../animations/entry-animation';
 import { ReviewItem } from './review-item';
 
@@ -18,21 +18,13 @@ export const ReviewsComponent = ({
   lng: string;
   items: any[];
 }) => {
-  const theme = useTheme();
-  const layout = useLayout();
+  const { layout } = useConfig();
   const { t } = useTranslation(lng, 'home');
 
   return (
-    <Section
-      pb={{ xs: 5.57, lg: 11.25 }}
-      pt={0}
-      style={{
-        background: theme.palette.background,
-        color: theme.palette.foreground,
-      }}
-    >
+    <Section pb={{ xs: 5.57, lg: 11.25 }} pt={0}>
       <PageWidth py={0}>
-        <Box style={{ borderTop: `1px solid ${theme.palette.border}` }}>
+        <Box style={{ borderTop: `1px solid var(--color-border-1000)` }}>
           <Grid.Container mt={11}>
             <Grid justify="center" lg={16} md={20}>
               <EntryAnimation delay={0} duration={500}>

@@ -1,15 +1,11 @@
-import ThemeProvider from '@himalaya-ui/core/use-config/theme-provider';
-
 import { useTranslation } from '@/i18n/index';
 import { fallbackLng, languages } from '@/i18n/settings';
 
 import ContactLayout from '@/components/contact/contact-layout';
-import { getThemes } from '@/components/theme';
 import { getFaq } from '@/lib/rest/get-faq';
 import { createSeoTitle } from '@/lib/seo';
 
 export const revalidate = 86400;
-export const dynamic = 'force-static';
 
 export async function generateMetadata({
   params: { lng },
@@ -34,12 +30,7 @@ export default async function Page({
 }) {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
 
-  const themes = getThemes();
   const faqItems = await getFaq(lng);
 
-  return (
-    <ThemeProvider themes={themes} themeType="dark">
-      <ContactLayout lng={lng} faqItems={faqItems}></ContactLayout>
-    </ThemeProvider>
-  );
+  return <ContactLayout lng={lng} faqItems={faqItems}></ContactLayout>;
 }

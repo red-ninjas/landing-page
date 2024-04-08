@@ -1,10 +1,7 @@
-import ThemeProvider from '@himalaya-ui/core/use-config/theme-provider';
-
 import { fallbackLng, languages } from '@/i18n/settings';
 
 import { useMDXComponents } from '@/components/mdx/mdx-components';
 import ServiceLayout from '@/components/services/service-layout';
-import { getThemes } from '@/components/theme';
 import { getSubServiceItem, getSubServiceSlugs } from '@/lib/rest/get-services';
 import { createSeoTitle } from '@/lib/seo';
 import { Metadata } from 'next';
@@ -12,7 +9,6 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 
 export const revalidate = 86400;
-export const dynamic = 'force-static';
 
 export async function generateStaticParams() {
   return await getSubServiceSlugs();
@@ -54,7 +50,6 @@ export default async function Page({
 }) {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
 
-  const themes = getThemes();
   const item = await getSubServiceItem(lng, slug);
 
   if (item === undefined) {
@@ -63,12 +58,8 @@ export default async function Page({
   const components = useMDXComponents({});
 
   return (
-    <ThemeProvider themes={themes} themeType="dark">
-      <ThemeProvider themes={themes} themeType="dark">
-        <ServiceLayout lng={lng} item={item}>
-          <MDXRemote components={components} source={item.content} />
-        </ServiceLayout>
-      </ThemeProvider>
-    </ThemeProvider>
+    <ServiceLayout lng={lng} item={item}>
+      <MDXRemote components={components} source={item.content} />
+    </ServiceLayout>
   );
 }

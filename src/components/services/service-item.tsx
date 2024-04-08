@@ -5,7 +5,6 @@ import { ServiceItem } from '@/lib/types/service-item';
 import Grid from '@himalaya-ui/core/grid';
 import Link from '@himalaya-ui/core/link';
 import Text from '@himalaya-ui/core/text';
-import useTheme from '@himalaya-ui/core/use-theme';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import { PlaceholderRender } from 'src/lib/types/placeholder-render';
@@ -20,7 +19,6 @@ export default ({
   item: PlaceholderRender<ServiceItem>;
   lng: LanguageKeysValues;
 }) => {
-  const theme = useTheme();
   return (
     <>
       <Grid.Container justify="space-between">
@@ -72,7 +70,7 @@ export default ({
             <Text
               lineHeight={'2rem'}
               m={0}
-              style={{ fontWeight: 400, color: theme.palette.accents_6 }}
+              style={{ fontWeight: 400, color: 'var(--color-foreground-600)' }}
             >
               <span
                 dangerouslySetInnerHTML={{ __html: item.description }}

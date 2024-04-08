@@ -1,25 +1,22 @@
 'use client';
 
-import ThemeProvider from '@himalaya-ui/core/use-config/theme-provider';
-
 import { useTranslation } from '@/i18n/client';
 import Link from 'next/link';
 
 import { FAQComponent } from '@/components/faq/faq-component';
 import { FooterComponent } from '@/components/layout/footer-component';
-import { getThemes } from '@/components/theme';
 import Box from '@himalaya-ui/core/box';
 import Button from '@himalaya-ui/core/button';
 import { PageHeader } from 'src/components/layout/page-header';
 import { FaqItem } from '../../lib/types/faq-item';
 import { ContactComponent } from './contact-component';
+import LightThemeWrapper from '../layout/light-mode-wrapper';
 
 export interface ContactLayoutProps {
   faqItems: FaqItem[];
   lng: string;
 }
 export default function ContactLayout({ lng, faqItems }: ContactLayoutProps) {
-  const themes = getThemes();
   const { t } = useTranslation(lng, 'contact');
 
   const addional = (
@@ -68,10 +65,10 @@ export default function ContactLayout({ lng, faqItems }: ContactLayoutProps) {
   return (
     <>
       <PageHeader title={t('title')} addional={addional}></PageHeader>
-      <ThemeProvider themes={themes} themeType="light">
+      <LightThemeWrapper>
         <ContactComponent lng={lng}></ContactComponent>
         <FAQComponent lng={lng} items={faqItems}></FAQComponent>
-      </ThemeProvider>
+      </LightThemeWrapper>
       <FooterComponent lng={lng}></FooterComponent>
     </>
   );

@@ -1,12 +1,11 @@
 'use client';
 import Text from '@himalaya-ui/core/text';
 import Grid from '@himalaya-ui/core/grid';
-import { useLayout } from '@himalaya-ui/core/use-layout/layout-context';
-import useTheme from '@himalaya-ui/core/use-theme';
 import Image from 'next/image';
 import { PlaceholderRender } from 'src/lib/types/placeholder-render';
 import { UspItem } from '@/lib/types/usp-item';
 import { EntryAnimation } from '../animations/entry-animation';
+import { useConfig } from '@himalaya-ui/core/use-config';
 const zeroPad = (num: number, places: number) =>
   String(num).padStart(places, '0');
 
@@ -17,8 +16,7 @@ export const AboutUsItem = ({
   item: PlaceholderRender<UspItem>;
   index: number;
 }) => {
-  const theme = useTheme();
-  const layout = useLayout();
+  const { layout } = useConfig();
 
   return (
     <>
@@ -85,7 +83,7 @@ export const AboutUsItem = ({
                 m={0}
                 font={1}
                 lineHeight={1.75}
-                style={{ color: theme.palette.accents_8 }}
+                style={{ color: 'var(--color-foreground-800)' }}
               >
                 {item.description}
               </Text>

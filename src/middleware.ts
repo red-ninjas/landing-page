@@ -14,13 +14,11 @@ export const config = {
 };
 
 export function middleware(req: NextRequest) {
-  const response = NextResponse.next();
-
   if (
     req.nextUrl.pathname.indexOf('icon') > -1 ||
     req.nextUrl.pathname.indexOf('chrome') > -1
   ) {
-    return response;
+    return NextResponse.next();
   }
 
   let lng: string | undefined | null;
@@ -43,6 +41,17 @@ export function middleware(req: NextRequest) {
     );
   }
 
+  const requestHeaders = new Headers(req.headers);
+  requestHeaders.set('x-invoke-language', lng);
+  requestHeaders.set('x-invoke-next-path', req.nextUrl.pathname);
+  requestHeaders.set('x-invoke-href', req.nextUrl.href);
+
+  const response = NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
+
   if (req.headers.has('referer')) {
     const refererUrl = new URL(req.headers.get('referer') || '');
     const lngInReferer = languages.find((l) =>
@@ -52,10 +61,6 @@ export function middleware(req: NextRequest) {
       response.cookies.set(cookieName, lngInReferer);
     }
   }
-
-  response.headers.set('x-invoke-language', lng);
-  response.headers.set('x-invoke-next-path', req.nextUrl.pathname);
-  response.headers.set('x-invoke-href', req.nextUrl.href);
 
   return response;
 }
