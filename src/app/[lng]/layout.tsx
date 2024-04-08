@@ -31,8 +31,6 @@ export async function generateMetadata({
   const pathname = headersList.get('x-invoke-next-path');
   const href = headersList.get('x-invoke-href');
 
-  console.log(headersList);
-
   const languages: any = {};
 
   if (pathname && href) {
