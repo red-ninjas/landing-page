@@ -60,6 +60,7 @@ export const ReviewItem = ({ lng, item }: { lng: string; item: any }) => {
         <Link
           block
           target="_blank"
+          style={{ backgroundColor: 'transparent' }}
           href={
             'https://www.google.com/maps/place/RedNinjas+LTD+-+Web+Development+in+Cyprus/@34.9570979,33.6467273,17z/data=!4m14!1m5!8m4!1e1!2s107773075507763491968!3m1!1e1!3m7!1s0x14de29684320033b:0xe3ef356d759eb281!8m2!3d34.9570935!4d33.6493022!9m1!1b1!16s%2Fg%2F11vt6psq2h?entry=ttu'
           }
