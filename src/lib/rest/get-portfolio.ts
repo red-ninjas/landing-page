@@ -35,6 +35,7 @@ export const getPortfolioItems = cache(
         updatedAt
         id
         slug
+        url
         description
         projectName
         isAvaiable
@@ -82,6 +83,7 @@ export const getPortfolioItem = cache(
            hex
          }
          id
+         url
          slug
          description
          projectName

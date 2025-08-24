@@ -108,8 +108,8 @@ export const PortfolioItem = ({
         </Text>
       </EntryAnimation>
       <EntryAnimation delay={300} duration={1000}>
-        {item.isAvaiable ? (
-          <Link legacyBehavior href={`/${lng}/case-studies/${item.slug}`}>
+        {item.isAvaiable  && item.url ? (
+          <Link legacyBehavior href={item.url} target='_blank'>
             <a>
               <Button
                 htmlType={'button'}
