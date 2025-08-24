@@ -11,7 +11,7 @@ import { getServices } from '@/lib/rest/get-services';
 import { createSeoTitle } from '@/lib/seo';
 import { PageHeader } from 'src/components/layout/page-header';
 import LightThemeWrapper from '@/components/layout/light-mode-wrapper';
-export const revalidate = 86400;
+export const revalidate = 2592000;
 
 export async function generateMetadata({
   params: { lng },

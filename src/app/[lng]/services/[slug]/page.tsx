@@ -8,7 +8,7 @@ import { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 
-export const revalidate = 86400;
+export const revalidate = 2592000;
 
 export async function generateStaticParams() {
   return await getSubServiceSlugs();

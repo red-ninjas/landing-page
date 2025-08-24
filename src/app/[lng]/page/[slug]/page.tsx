@@ -8,7 +8,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 import { useMDXComponents } from 'src/components/mdx/mdx-components';
 
-export const revalidate = 86400;
+export const revalidate = 2592000;
 
 export async function generateStaticParams() {
   return await getPagesSlugs();

@@ -5,7 +5,7 @@ import { getSubServices } from '@/lib/rest/get-services';
 import moment from 'moment';
 import { MetadataRoute } from 'next';
 
-export const revalidate = 3600; // every hour
+export const revalidate = 2592000; // every hour
 
 export interface Url {
   url: string;

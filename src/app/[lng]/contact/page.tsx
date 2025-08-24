@@ -5,7 +5,7 @@ import ContactLayout from '@/components/contact/contact-layout';
 import { getFaq } from '@/lib/rest/get-faq';
 import { createSeoTitle } from '@/lib/seo';
 
-export const revalidate = 86400;
+export const revalidate = 2592000;
 
 export async function generateMetadata({
   params: { lng },

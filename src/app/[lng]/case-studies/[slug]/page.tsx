@@ -8,7 +8,7 @@ import PortfolioLayout from '@/components/case-studies/portfolio-layout';
 import { useMDXComponents } from '@/components/mdx/mdx-components';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
-export const revalidate = 86400;
+export const revalidate = 2592000;
 
 export async function generateStaticParams() {
   return await getCaseStudieSlugs();

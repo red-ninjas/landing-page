@@ -12,7 +12,7 @@ import { getPartnerItems } from '@/lib/rest/get-partners';
 import { getPortfolioItems } from '@/lib/rest/get-portfolio';
 import { getReviews } from '@/lib/rest/get-reviews';
 
-export const revalidate = 3600;
+export const revalidate = 2592000;
 
 export async function generateMetadata({
   params: { lng },

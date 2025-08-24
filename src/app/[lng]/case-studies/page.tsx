@@ -10,7 +10,7 @@ import { PageHeader } from 'src/components/layout/page-header';
 import { getPortfolioItems } from 'src/lib/rest/get-portfolio';
 import LightThemeWrapper from '@/components/layout/light-mode-wrapper';
 
-export const revalidate = 86400;
+export const revalidate = 2592000;
 
 export async function generateMetadata({
   params: { lng },
