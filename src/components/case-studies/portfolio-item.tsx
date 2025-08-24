@@ -28,7 +28,7 @@ export const PortfolioItem = ({
       {item.isAvaiable && item.url ? (
         <EntryAnimation delay={0} duration={700}>
           <Link legacyBehavior href={item.url} target='_blank'>
-            <a
+            <a  target='_blank'
               className={classNames(
                 'portfolio-img', //each forths
                 {
@@ -110,7 +110,7 @@ export const PortfolioItem = ({
       <EntryAnimation delay={300} duration={1000}>
         {item.isAvaiable  && item.url ? (
           <Link legacyBehavior href={item.url} target='_blank'>
-            <a>
+            <a target='_blank'>
               <Button
                 htmlType={'button'}
                 type="primary"
