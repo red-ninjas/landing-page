@@ -32,13 +32,6 @@ export const ReviewItem = ({ lng, item }: { lng: string; item: any }) => {
               count={5}
             />
           </Grid>
-          <Grid>
-            <Text type="secondary" small>
-              <Moment fromNow unix>
-                {item.time}
-              </Moment>
-            </Text>
-          </Grid>
         </Grid.Container>
         <Link p={0} m={0} target="_blank" href={item.author_url}>
           <Grid.Container mt={1} alignItems={'center'}>
