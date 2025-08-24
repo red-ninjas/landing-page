@@ -11,7 +11,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <HybridLink {...(props as LinkProps)}>{children}</HybridLink>
     ),
     p: ({ children }) => (
-      <Text mt={'1.5rem'} mb={'1.5rem'} font={'1.125rem'} lineHeight={'2rem'}>
+      <Text style={{ whiteSpace:'break-spaces' }} mt={'1.5rem'} mb={'1.5rem'} font={'1.125rem'} lineHeight={'2rem'}>
         {children}
       </Text>
     ),
