@@ -25,9 +25,9 @@ export const PortfolioItem = ({
 
   return (
     <EntryAnimation delay={0} duration={1000}>
-      {item.isAvaiable ? (
+      {item.isAvaiable && item.url ? (
         <EntryAnimation delay={0} duration={700}>
-          <Link legacyBehavior href={`/${lng}/case-studies/${item.slug}`}>
+          <Link legacyBehavior href={item.url} target='_blank'>
             <a
               className={classNames(
                 'portfolio-img', //each forths

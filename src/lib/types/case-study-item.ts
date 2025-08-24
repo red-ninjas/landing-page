@@ -8,6 +8,7 @@ export type CaseStudyItem = {
   picture: {
     url: string;
   };
+  url?:string;
 };
 
 export type CaseStudyViewItem = {
