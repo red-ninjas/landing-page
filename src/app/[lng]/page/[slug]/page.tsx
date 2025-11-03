@@ -1,21 +1,15 @@
 import { fallbackLng, languages } from '@/i18n/settings';
-import { serialize } from 'next-mdx-remote/serialize';
 import joinLine from 'rehype-join-line';
 
 import PageLayout from '@/components/page/page-layout';
 import { getPage, getPagesSlugs } from '@/lib/rest/get-page';
 import { createSeoTitle } from '@/lib/seo';
 import { Metadata } from 'next';
-import {
-  compileMDX,
-  MDXRemote,
-  MDXRemoteSerializeResult,
-} from 'next-mdx-remote/rsc';
+import { compileMDX } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
-import { useMDXComponents } from 'src/components/mdx/mdx-components';
-import remarkGfm from 'remark-gfm';
-import remarkMdx from 'remark-mdx';
 import remarkBreaks from 'remark-breaks';
+import remarkGfm from 'remark-gfm';
+import { useMDXComponents } from 'src/components/mdx/mdx-components';
 
 export const revalidate = 2592000;
 

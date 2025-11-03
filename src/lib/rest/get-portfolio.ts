@@ -8,8 +8,12 @@ import type {
 import { PlaceholderRender } from '../types/placeholder-render';
 import { connect } from './client';
 import { cache } from 'react';
+import { delay, isBuildTime } from './helper';
 
 export const getCaseStudieSlugs = cache(async (): Promise<string[]> => {
+  if (isBuildTime()) {
+    await delay(200 + Math.random() * 300);
+  }
   const { data } = await connect().query({
     query: gql`
       query CaseStudies {
@@ -27,6 +31,9 @@ export const getPortfolioItems = cache(
     language: string,
     amount: number | undefined = 9999
   ): Promise<PlaceholderRender<CaseStudyItem>[]> => {
+    if (isBuildTime()) {
+      await delay(200 + Math.random() * 300);
+    }
     const { data } = await connect().query({
       query: gql`
     query CaseStudies {
@@ -69,6 +76,9 @@ export const getPortfolioItem = cache(
     language: string,
     slug: string
   ): Promise<PlaceholderRender<CaseStudyViewItem>> => {
+    if (isBuildTime()) {
+      await delay(200 + Math.random() * 300);
+    }
     const { data } = await connect().query({
       query: gql`
     query CaseStudies {

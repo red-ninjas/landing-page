@@ -5,9 +5,13 @@ import { BlogCategory, BlogItem } from '../types/blog-item';
 import { PlaceholderRender } from '../types/placeholder-render';
 import { connect } from './client';
 import { cache } from 'react';
+import { delay, isBuildTime } from './helper';
 
 export const getBlogCategories = cache(
   async (language: string): Promise<BlogCategory[]> => {
+    if (isBuildTime()) {
+      await delay(200 + Math.random() * 300);
+    }
     const CATEGORIES_QUERY = gql`
     query Categories {
       categories(where: {language: ${language}}) {
@@ -25,6 +29,9 @@ export const getBlogCategories = cache(
 
 export const getBlogItems = cache(
   async (language: string): Promise<PlaceholderRender<BlogItem>[]> => {
+    if (isBuildTime()) {
+      await delay(200 + Math.random() * 300);
+    }
     const { data } = await connect().query({
       query: gql`
     query Posts {
@@ -75,6 +82,9 @@ export const getBlogItems = cache(
 
 export const getBlogSlugs = cache(
   async (language: string): Promise<string[]> => {
+    if (isBuildTime()) {
+      await delay(200 + Math.random() * 300);
+    }
     const { data } = await connect().query({
       query: gql`
       query Posts {
@@ -90,6 +100,9 @@ export const getBlogSlugs = cache(
 
 export const getBlogItem = cache(
   async (slug: string): Promise<PlaceholderRender<BlogItem> | undefined> => {
+    if (isBuildTime()) {
+      await delay(200 + Math.random() * 300);
+    }
     const { data } = await connect().query({
       query: gql`
       query Post {

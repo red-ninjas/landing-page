@@ -4,9 +4,13 @@ import { PlaceholderRender } from '../types/placeholder-render';
 import { gql } from '@apollo/client';
 import { connect } from './client';
 import { cache } from 'react';
+import { delay, isBuildTime } from './helper';
 
 export const getPartnerItems = cache(
   async (): Promise<PlaceholderRender<PartnershipItem>[]> => {
+    if (isBuildTime()) {
+      await delay(200 + Math.random() * 300);
+    }
     const { data } = await connect().query({
       query: gql`
         query Posts {

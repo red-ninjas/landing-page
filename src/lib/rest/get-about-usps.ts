@@ -4,12 +4,16 @@ import { PlaceholderRender } from '../types/placeholder-render';
 import { UspItem } from '../types/usp-item';
 import { connect } from './client';
 import { cache } from 'react';
+import { delay, isBuildTime } from './helper';
 
 export const getAboutUSPs = cache(
   async (
     language: string,
     module: 'outsourcing' | 'about' | 'membership' = 'about'
   ): Promise<PlaceholderRender<UspItem>[]> => {
+    if (isBuildTime()) {
+      await delay(200 + Math.random() * 300);
+    }
     const { data } = await connect().query({
       query: gql`
     query Usps {

@@ -4,12 +4,16 @@ import { PlaceholderRender } from '../types/placeholder-render';
 import { ServiceItem, ServiceSubItem } from '../types/service-item';
 import { connect } from './client';
 import { cache } from 'react';
+import { delay, isBuildTime } from './helper';
 
 export const getServices = cache(
   async (
     language: string,
-    module: 'service' | 'outsourcing'  | 'membership'= 'service'
+    module: 'service' | 'outsourcing' | 'membership' = 'service'
   ): Promise<PlaceholderRender<ServiceItem>[]> => {
+    if (isBuildTime()) {
+      await delay(200 + Math.random() * 300);
+    }
     const { data } = await connect().query({
       query: gql`
     query Services {
@@ -50,6 +54,9 @@ export const getServices = cache(
 
 export const getSubServices = cache(
   async (language: string): Promise<ServiceSubItem[]> => {
+    if (isBuildTime()) {
+      await delay(200 + Math.random() * 300);
+    }
     const { data } = await connect().query({
       query: gql`
     query Services {
@@ -69,6 +76,9 @@ export const getSubServices = cache(
 );
 
 export const getSubServiceSlugs = cache(async (): Promise<string[]> => {
+  if (isBuildTime()) {
+    await delay(200 + Math.random() * 300);
+  }
   const { data } = await connect().query({
     query: gql`
       query Services {
@@ -88,6 +98,9 @@ export const getSubServiceItem = cache(
     language: string,
     slug: string
   ): Promise<PlaceholderRender<ServiceSubItem>> => {
+    if (isBuildTime()) {
+      await delay(200 + Math.random() * 300);
+    }
     const { data } = await connect().query({
       query: gql`
     query ServiceSubItem {
