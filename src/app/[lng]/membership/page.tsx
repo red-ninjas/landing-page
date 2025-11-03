@@ -13,7 +13,8 @@ import { PageHeader } from 'src/components/layout/page-header';
 import LightThemeWrapper from '@/components/layout/light-mode-wrapper';
 import { MemberShip } from '@/components/membership';
 import { MemberShipAlert } from '@/components/alert';
-export const revalidate = 2592000;
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 export async function generateMetadata({
   params: { lng },

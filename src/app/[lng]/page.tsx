@@ -12,7 +12,8 @@ import { getPartnerItems } from '@/lib/rest/get-partners';
 import { getPortfolioItems } from '@/lib/rest/get-portfolio';
 import { getReviews } from '@/lib/rest/get-reviews';
 
-export const revalidate = 2592000;
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 export async function generateMetadata({
   params: { lng },

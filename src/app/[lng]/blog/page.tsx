@@ -8,7 +8,8 @@ import BlogOverviewComponent from 'src/components/blog/blog-overview.component';
 import { createSeoTitle } from '@/lib/seo';
 import LightThemeWrapper from '@/components/layout/light-mode-wrapper';
 
-export const revalidate = 2592000;
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 export async function generateMetadata({
   params: { lng },

@@ -11,7 +11,8 @@ import remarkBreaks from 'remark-breaks';
 import remarkGfm from 'remark-gfm';
 import { useMDXComponents } from 'src/components/mdx/mdx-components';
 
-export const revalidate = 2592000;
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 export async function generateStaticParams() {
   return await getPagesSlugs();
