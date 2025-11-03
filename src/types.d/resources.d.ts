@@ -12,6 +12,44 @@ interface Resources {
     read_time: '{{minutes}} Minuten Lesezeit';
     ago: 'Geschrieben, {{time}}';
   };
+  membership: {
+    seo: {
+      title: 'Community Membership – Werde Teil unserer Community';
+      description: 'Tritt unserer exklusiven Community bei und erhalte Zugang zu Early-Stage-Produkten, direktem Austausch, persönlichem Support, Events und vielen weiteren Vorteilen. Jederzeit kündbar – monatlich, halbjährlich oder jährlich buchbar.';
+    };
+    title: 'Die Energie eines Start-ups, die Stärke einer Community.';
+    description: 'Seit dem ersten Tag leben wir Innovation, Austausch und echten Fortschritt. Mit deiner Community-Mitgliedschaft wirst du Teil einer Bewegung – ganz nah an neuen Ideen, Projekten und den Menschen, die sie gestalten. Gemeinsam wachsen, lernen und Zukunft schaffen.';
+    faq: {
+      title: 'Häufige Fragen zur Community-Mitgliedschaft';
+    };
+    usps: {
+      title: 'Warum es sich lohnt, Teil unserer Community zu werden';
+    };
+    features: {
+      cancelAnytime: 'Jederzeit kündbar – ohne Mindestlaufzeit';
+      billingOptions: 'Flexibel buchbar: monatlich, halbjährlich oder jährlich';
+      noHiddenCosts: 'Keine versteckten Gebühren oder Zusatzkosten';
+      paymentMethods: 'Bequeme und sichere Zahlung über VISA, Mastercard, Apple Pay oder Google Pay';
+    };
+    teaser: {
+      title: 'Werde Teil unserer Community';
+      subtitle: 'Betrete die Welt kreativer Entwickler:innen, Designer:innen und Visionär:innen – mit exklusivem Zugang zu Projekten, Insights und Early-Stage-Features.';
+    };
+    price: {
+      label: 'Monatlich ab';
+      amount: 'EUR 49.99';
+      currency: 'EUR';
+    };
+    cta: 'Mitgliedschaft anfragen';
+    guarantee: {
+      text: 'Dieses Abonnement verlängert sich automatisch monatlich.';
+      link: 'Zu den Allgemeinen Geschäftsbedingungen';
+    };
+    alert: {
+      title: 'Wichtiger Hinweis';
+      text: 'Das Community-Membership-Programm befindet sich derzeit in der Testphase und ist ausschließlich für ausgewählte Mitglieder verfügbar. Bei Fragen wende dich bitte an einen unserer Administratoren.';
+    };
+  };
   services: {
     title: 'Mit Ambition und Leidenschaft für detailgetreue Konzepte.';
     description: 'Mit Sinn für Expertise, Leidenschaft und Lösungen, arbeiten wir daran, deinen Markt zu verstehen und perfekte Ergebnisse zu liefern. Durch unsere innovativen Methoden wirst du problemlos über deine Konkurrenz herausragen.';
