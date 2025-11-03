@@ -27,6 +27,14 @@ const nextConfig = {
         source: "/de/mitgliedschaft",
         destination: "/de/membership",
       },
+      {
+        source: "/de/agbs",
+        destination: "/de/page/terms",
+      },
+      {
+        source: "/en/terms",
+        destination: "/en/page/terms",
+      },
     ]
   },
   images: {
