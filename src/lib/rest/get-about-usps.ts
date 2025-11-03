@@ -34,6 +34,9 @@ export const getAboutUSPs = cache(
     const items: PlaceholderRender<UspItem>[] = [];
     for (const item of data.usps as UspItem[]) {
       if (item.image) {
+        if (isBuildTime()) {
+          await delay(200 + Math.random() * 300);
+        }
         const fimg = await fetch(item.image.url);
         const fimgb = Buffer.from(await fimg.arrayBuffer());
         const { base64 } = await getPlaiceholder(fimgb);

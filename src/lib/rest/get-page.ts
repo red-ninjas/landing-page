@@ -32,6 +32,9 @@ export const getPage = cache(
 );
 
 export const getPagesSlugs = cache(async (): Promise<string[]> => {
+  if (isBuildTime()) {
+    await delay(200 + Math.random() * 300);
+  }
   const { data } = await connect().query({
     query: gql`
       query Pages {

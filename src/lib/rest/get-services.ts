@@ -125,6 +125,9 @@ export const getSubServiceItem = cache(
     });
 
     if (data.serviceSubItem.image) {
+      if (isBuildTime()) {
+        await delay(200 + Math.random() * 300);
+      }
       const fimg = await fetch(data.serviceSubItem.image.url);
       const fimgb = Buffer.from(await fimg.arrayBuffer());
       const { base64 } = await getPlaiceholder(fimgb);

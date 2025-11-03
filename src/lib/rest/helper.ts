@@ -1,5 +1,6 @@
 export function delay(ms: number) {
-  return new Promise((res) => setTimeout(res, ms));
+  console.log('COOLDOWN BUILDING');
+  return new Promise((res) => setTimeout(res, ms + 250));
 }
 
 export function isBuildTime() {
