@@ -8,7 +8,7 @@ import { cache } from 'react';
 export const getAboutUSPs = cache(
   async (
     language: string,
-    module: 'outsourcing' | 'about' = 'about'
+    module: 'outsourcing' | 'about' | 'membership' = 'about'
   ): Promise<PlaceholderRender<UspItem>[]> => {
     const { data } = await connect().query({
       query: gql`

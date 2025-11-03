@@ -4,14 +4,28 @@ import HybridCode from './hybrid-code';
 import Text from '@himalaya-ui/core/text';
 import Image from 'next/image';
 import type { MDXComponents } from 'mdx/types';
+import { Table } from './table';
 
+export const TableCore = (props: any) => <Table {...props} />;
+
+export const Th = (props: any) => <th>{props.children}</th>;
+export const Td = (props: any) => <td>{props.children}</td>;
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
+    table: TableCore,
+    th: Th,
+    td: Td,
     a: ({ children, ...props }) => (
       <HybridLink {...(props as LinkProps)}>{children}</HybridLink>
     ),
     p: ({ children }) => (
-      <Text style={{ whiteSpace:'break-spaces' }} mt={'1.5rem'} mb={'1.5rem'} font={'1.125rem'} lineHeight={'2rem'}>
+      <Text
+        style={{ whiteSpace: 'normal' }}
+        mt={'1.5rem'}
+        mb={'1.5rem'}
+        font={'1.125rem'}
+        lineHeight={'2rem'}
+      >
         {children}
       </Text>
     ),

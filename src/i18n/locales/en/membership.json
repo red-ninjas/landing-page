@@ -1,0 +1,38 @@
+{
+  "seo": {
+    "title": "Community Membership – Join Our Community",
+    "description": "Join our exclusive community and gain access to early-stage products, direct exchange, personal support, events, and many more benefits. Cancel anytime – available monthly, semi-annually, or yearly."
+  },
+  "title": "The energy of a start-up, the strength of a community.",
+  "description": "From day one, we’ve embraced innovation, collaboration, and genuine progress. With your community membership, you become part of a movement – close to new ideas, projects, and the people who shape them. Together, we grow, learn, and build the future.",
+  "faq": {
+    "title": "Frequently Asked Questions about the Community Membership"
+  },
+  "usps": {
+    "title": "Why it’s worth becoming part of our community"
+  },
+  "features": {
+    "cancelAnytime": "Cancel anytime",
+    "billingOptions": "Flexible plans: monthly, semi-annual, or yearly",
+    "noHiddenCosts": "No hidden fees or additional costs",
+    "paymentMethods": "Pay conveniently and securely via VISA, Mastercard, Apple Pay, or Google Pay"
+  },
+  "teaser": {
+    "title": "Join Our Community",
+    "subtitle": "Step into the world of creative developers, designers, and visionaries – with exclusive access to projects, insights, and early-stage features."
+  },
+  "price": {
+    "label": "Starting at",
+    "amount": "EUR 49.99",
+    "currency": "EUR"
+  },
+  "cta": "Request Membership",
+  "guarantee": {
+    "text": "The subscription automatically renews each month unless cancelled beforehand.",
+    "link": "View the Terms and Conditions"
+  },
+  "alert": {
+    "title": "Important Notice",
+    "text": "The community membership program is currently in its testing phase and available only to selected members. If you have any questions, please contact one of our administrators."
+  }
+}

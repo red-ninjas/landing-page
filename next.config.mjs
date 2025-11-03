@@ -1,7 +1,8 @@
 import createMDX from '@next/mdx';
 import joinLine from 'rehype-join-line';
 import remarkGfm from 'remark-gfm';
-import remarkMdx from 'remark-mdx';
+import remarkBreaks from 'remark-breaks';
+
 const getHash = (source, length) =>
   createHash('shake256', { outputLength: length }).update(source).digest('hex');
 
@@ -9,7 +10,7 @@ const withMDX = createMDX({
   extension: /\.(md|mdx)?$/,
   options: {
     // providerImportSource: '@mdx-js/react',
-    remarkPlugins: [remarkMdx, remarkGfm],
+    remarkPlugins: [remarkGfm, remarkBreaks],
     rehypePlugins: [joinLine],
   },
 });

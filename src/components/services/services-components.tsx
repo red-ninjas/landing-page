@@ -14,10 +14,12 @@ export const ServicesComponent = ({
   lng,
   items,
   withTopPadding = true,
+  readMore = true,
 }: {
   lng: LanguageKeysValues;
   items: PlaceholderRender<ServiceItem>[];
   withTopPadding?: boolean;
+  readMore?: boolean;
 }) => {
   const { t } = useTranslation(lng, 'services');
 
@@ -37,32 +39,34 @@ export const ServicesComponent = ({
           })}
         </div>
 
-        <Grid.Container gap={5} justify="center">
-          <Grid xs={24} justify="center">
-            <div style={{ width: '100%', textAlign: 'center' }}>
-              <Link legacyBehavior href={`/${lng}/blog`}>
-                <a>
-                  <Button
-                    htmlType={'button'}
-                    type="primary"
-                    scale={1.2}
-                    auto={{ xs: false, md: true }}
-                    w="100%"
-                    pl={1}
-                    pr={1}
-                    mt={{ xs: 2.625, md: 5.75 }}
-                    style={{
-                      textTransform: 'none',
-                      fontWeight: '700',
-                    }}
-                  >
-                    {t('explore')}
-                  </Button>
-                </a>
-              </Link>
-            </div>
-          </Grid>
-        </Grid.Container>
+        {readMore && (
+          <Grid.Container gap={5} justify="center">
+            <Grid xs={24} justify="center">
+              <div style={{ width: '100%', textAlign: 'center' }}>
+                <Link legacyBehavior href={`/${lng}/blog`}>
+                  <a>
+                    <Button
+                      htmlType={'button'}
+                      type="primary"
+                      scale={1.2}
+                      auto={{ xs: false, md: true }}
+                      w="100%"
+                      pl={1}
+                      pr={1}
+                      mt={{ xs: 2.625, md: 5.75 }}
+                      style={{
+                        textTransform: 'none',
+                        fontWeight: '700',
+                      }}
+                    >
+                      {t('explore')}
+                    </Button>
+                  </a>
+                </Link>
+              </div>
+            </Grid>
+          </Grid.Container>
+        )}
       </PageWidth>
       <style jsx>{`
         .services {

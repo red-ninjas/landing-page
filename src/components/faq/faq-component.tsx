@@ -13,9 +13,11 @@ import { FAQItemComponent } from './faq-item-component';
 export const FAQComponent = ({
   lng,
   items,
+  title,
 }: {
   lng: string;
   items: FaqItem[];
+  title?: string;
 }) => {
   const { t } = useTranslation(lng, 'home');
 
@@ -34,7 +36,7 @@ export const FAQComponent = ({
                   lineHeight={{ xs: 2.375, md: 3.375 }}
                   style={{ fontWeight: 500 }}
                 >
-                  {t('faq.title')}
+                  {title ?? t('faq.title')}
                 </Text>
               </EntryAnimation>
             </Grid>

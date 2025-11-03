@@ -8,7 +8,7 @@ import { cache } from 'react';
 export const getServices = cache(
   async (
     language: string,
-    module: 'service' | 'outsourcing' = 'service'
+    module: 'service' | 'outsourcing'  | 'membership'= 'service'
   ): Promise<PlaceholderRender<ServiceItem>[]> => {
     const { data } = await connect().query({
       query: gql`

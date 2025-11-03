@@ -24,10 +24,9 @@ export const AboutUsItem = ({
         {item.image?.url && item.placeholder && (
           <Grid
             xs={24}
-            mt={{ xs: 0, md: 4 }}
             sm={12}
             md={26}
-            order={{ xs: 4, sm: 1, md: 4 }}
+            order={1}
           >
             <EntryAnimation delay={0} duration={700}>
               <div className="usp-img">
@@ -48,13 +47,14 @@ export const AboutUsItem = ({
           </Grid>
         )}
         <Grid
+          order={2}
           xs={24}
+          mt={{ xs: 0, md: 2 }}
           sm={item.image?.url && item.placeholder ? 12 : 24}
           md={24}
-          order={{ xs: 2 }}
         >
-          <Grid.Container gap={2} alignContent={'flex-start'}>
-            <Grid xs={24}>
+          <Grid.Container gap={2}alignContent={'flex-start'}>
+            <Grid xs={24}  >
               <Text
                 m={0}
                 font={{ xs: '2.25rem', xl: '3.75rem' }}
@@ -67,7 +67,7 @@ export const AboutUsItem = ({
                 {zeroPad(index + 1, 2)}
               </Text>
             </Grid>
-            <Grid xs={24}>
+            <Grid xs={24} >
               <Text
                 h2
                 m={0}
@@ -115,7 +115,7 @@ export const AboutUsItem = ({
         }
 
         .usp-img {
-          padding-top: 125%;
+          padding-top: 65%;
           width: 100%;
           height: 0px;
           display: inline-block;
